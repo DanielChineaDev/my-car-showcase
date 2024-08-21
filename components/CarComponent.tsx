@@ -3,9 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
+import { EffectComposer, RenderPass, SMAAEffect, GlitchEffect, EffectPass } from 'postprocessing';
 import styles from '../styles/CarComponent.module.css';
 
 const CarComponent: React.FC = () => {
@@ -33,9 +31,11 @@ const CarComponent: React.FC = () => {
     }
 
     // Añadir luz a la escena
-    const light = new THREE.DirectionalLight(0xffffff, 5);
-    light.position.set(5, 5, 5);
-    scene.add(light);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 5); // Luz direccional para sombras
+    directionalLight.position.set(5, 5, 5);
+    directionalLight.castShadow = true; // Activar sombras
+    scene.add(directionalLight);
+
 
     // Cargar el modelo 3D del coche
     const loader = new GLTFLoader();
@@ -47,10 +47,9 @@ const CarComponent: React.FC = () => {
         car.scale.set(0.07, 0.07, 0.07);
         scene.add(car);
 
-        // Animación del coche
         const animate = () => {
           requestAnimationFrame(animate);
-          car.rotation.y += 0.003; // Velocidad de rotación ajustada
+          car.rotation.y += 0.003;
           composer.render();
         };
 
@@ -62,14 +61,23 @@ const CarComponent: React.FC = () => {
       }
     );
 
-    // Configuración de postprocesamiento con GlitchPass
+    // Configuración de postprocesamiento con la biblioteca postprocessing
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
 
-    const glitchPass = new GlitchPass();
-    composer.addPass(glitchPass);
 
-    // Manejo de la ventana de cambio de tamaño
+    // Aplicación del GlitchEffect de la biblioteca postprocessing
+    const glitchEffect = new GlitchEffect({
+      chromaticAberrationOffset: new THREE.Vector2(0.00001, 0.00001), // Desplazamiento de aberración cromática
+      perturbationMap: null, // Puedes agregar un mapa de perturbación personalizado
+      columns: 0.001, // Ancho de las columnas de glitch
+      dtSize: 128 // Tamaño de la textura temporal para el glitch
+    });
+
+    const effectPass = new EffectPass(camera, glitchEffect);
+    effectPass.renderToScreen = true;
+    composer.addPass(effectPass);
+
     const handleResize = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
@@ -93,7 +101,7 @@ const CarComponent: React.FC = () => {
     <div className={styles.container} ref={mountRef}>
       <img
         className={styles.backgroundImage}
-        src="/revenge_logo.png"
+        src="/revenge_logo.svg"
         alt="Background"
       />
       <div className={styles.topRightText}>TOP RIGHT TEXT</div>
