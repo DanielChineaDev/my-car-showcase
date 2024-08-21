@@ -20,7 +20,7 @@ const CarComponent: React.FC = () => {
       0.1,
       1000
     );
-    camera.position.set(0, 2, 30);
+    camera.position.set(0, 15, 30);
     camera.lookAt(0, 1, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
