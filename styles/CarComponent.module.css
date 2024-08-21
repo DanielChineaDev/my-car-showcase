@@ -24,6 +24,8 @@
     transform: translate(-50%, -50%);
     width: 80%; /* Ajusta el tamaño según sea necesario */
     height: auto;
+    max-width: 1200px; /* Tamaño máximo de la imagen */
+    max-height: 800px; /* Tamaño máximo de la imagen */
     z-index: 1;
     opacity: 0.2; /* Controla la transparencia de la imagen de fondo */
   }
