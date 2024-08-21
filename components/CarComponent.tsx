@@ -50,7 +50,7 @@ const CarComponent: React.FC = () => {
         // Animación del coche
         const animate = () => {
           requestAnimationFrame(animate);
-          car.rotation.y += 0.005; // Velocidad de rotación ajustada
+          car.rotation.y += 0.003; // Velocidad de rotación ajustada
           composer.render();
         };
 
