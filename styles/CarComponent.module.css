@@ -10,30 +10,46 @@
   top: 45%; /* Posición un poco más cerca del coche */
   left: 50%;
   transform: translate(-50%, -270%); /* Centrar horizontalmente y ajustar verticalmente */
-  text-align: left; /* Alinear el texto a la izquierda */
+  text-align: left;
   z-index: 3;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Alinear el contenido al inicio (izquierda) */
+  flex-direction: row; /* Alinea las flechas y el texto en fila */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
 .brand {
-  font-size: 2rem; /* Tamaño de la fuente para la marca */
-  color: rgba(255, 255, 255, 0.6); /* Color opaco para la marca */
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.6);
   font-family: 'Pixelify Sans', sans-serif;
-  margin-left: 0px; /* Alinear el texto al inicio */
 }
 
 .model {
-  font-size: 4rem; /* Tamaño de la fuente para el modelo */
-  color: #ffffff; /* Color blanco para el modelo */
+  font-size: 4rem;
+  color: #ffffff;
   font-family: 'Pixelify Sans', sans-serif;
-  margin-top: -5px; /* Ajusta para que esté cerca de la marca */
+  margin-top: -5px;
+}
+
+.arrowLeft, .arrowRight {
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px; /* Aumenta el espacio entre las flechas y el texto */
+}
+
+.arrowLeft {
+  margin-right: 30px; /* Ajusta la separación de la flecha izquierda */
+}
+
+.arrowRight {
+  margin-left: 30px; /* Ajusta la separación de la flecha derecha */
 }
 
 .canvasContainer {
   width: 100%;
-  height: 70vh; /* El canvas ocupa el 70% de la altura total */
+  height: 70vh;
   position: relative;
   z-index: 2;
 }
@@ -135,24 +151,3 @@
   border-radius: 4px;
   top: -2px;
 }
-
-.arrowLeft, .arrowRight {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 4;
-}
-
-.arrowLeft {
-  left: -50px; /* Ajusta según sea necesario */
-}
-
-.arrowRight {
-  right: -50px; /* Ajusta según sea necesario */
-}
-

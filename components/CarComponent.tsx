@@ -25,8 +25,12 @@ const CarComponent: React.FC = () => {
       querySnapshot.forEach((doc) => {
         carsList.push(doc.data());
       });
+
+      // Selecciona un índice aleatorio
+      const randomIndex = Math.floor(Math.random() * carsList.length);
       setCars(carsList);
-      setCarData(carsList[0]);
+      setCurrentCarIndex(randomIndex);
+      setCarData(carsList[randomIndex]);
     };
 
     fetchCars();
