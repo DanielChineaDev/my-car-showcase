@@ -1,4 +1,4 @@
-"use client"; // Indica que este es un componente de cliente
+"use client";
 
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
@@ -76,8 +76,12 @@ const CarComponent: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.carDetails}>
+        <div className={styles.brand}>BMW</div> {/* Marca del coche */}
+        <div className={styles.model}>M4 GTS</div> {/* Modelo del coche */}
+      </div>
       <div className={styles.canvasContainer} ref={mountRef} />
-      <CarStats topSpeed={5} acceleration={3} handling={2} /> {/* Ejemplo de valores */}
+      <CarStats topSpeed={3} acceleration={4} handling={2} />
       <img
         className={styles.backgroundImage}
         src="/revenge_logo.png"
