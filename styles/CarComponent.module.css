@@ -1,89 +1,88 @@
 .container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* Estilos para el canvas de Three.js */
-  .canvasStyle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none; /* Permite interactuar con elementos superpuestos si es necesario */
-  }
-  
-  /* Estilos para la imagen de fondo */
-  .backgroundImage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Ajusta el tamaño según sea necesario */
-    height: auto;
-    max-width: 1200px; /* Tamaño máximo de la imagen */
-    max-height: 800px; /* Tamaño máximo de la imagen */
-    z-index: 1;
-    opacity: 0.2; /* Controla la transparencia de la imagen de fondo */
-  }
-  
-  /* Estilos para el texto superior derecho */
-  .topRightText {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    font-family: 'PixelFont', monospace;
-    color: #ffffff;
-    z-index: 3;
-    animation: typing 3s steps(40, end);
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 4px solid;
-  }
-  
-  /* Estilos para el texto inferior izquierdo */
-  .bottomLeftText {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 1.5rem;
-    font-family: 'PixelFont', monospace;
-    color: #ffffff;
-    z-index: 3;
-    animation: typing 3s steps(40, end);
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 4px solid;
-  }
-  
-  /* Estilos para la imagen inferior izquierda */
-  .bottomLeftImage {
-    position: absolute;
-    bottom: 80px; /* Ajusta según la necesidad de espacio */
-    left: 20px;
-    width: 100px;
-    z-index: 3;
-  }
-  
-  /* Animación de escritura */
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-  
-  /* Importar fuente personalizada */
-  @font-face {
-    font-family: 'PixelFont';
-    src: url('/path-to-your-pixel-font.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.canvasContainer {
+  width: 100%;
+  height: 70vh; /* Ocupa el 70% de la altura total para el canvas */
+  position: relative;
+  z-index: 2;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  max-width: 1200px;
+  max-height: 800px;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.topRightText,
+.bottomLeftText {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+.topRightText {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  z-index: 3;
+}
+
+.bottomLeftText {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  z-index: 3;
+}
+
+.bottomLeftImage {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  width: 100px;
+  z-index: 3;
+}
+
+.statsContainer {
+  margin-top: 10px;
+  color: white;
+  font-family: 'Pixelify Sans', sans-serif;
+  text-align: center;
+  z-index: 3;
+}
+
+.stat {
+  margin-bottom: 10px;
+}
+
+.statLabel {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.statBar {
+  width: 80%;
+  margin: 0 auto; /* Centrar las barras */
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.statBarFill {
+  height: 100%;
+  background-color: #00ff00;
+}

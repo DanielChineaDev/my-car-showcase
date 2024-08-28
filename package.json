@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babylonjs/core": "^7.21.5",
+    "@babylonjs/loaders": "^7.21.5",
+    "@babylonjs/materials": "^7.21.5",
     "gsap": "^3.12.5",
     "next": "14.2.5",
     "pixi.js": "^8.3.3",
