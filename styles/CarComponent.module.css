@@ -7,17 +7,21 @@
 
 .carDetails {
   position: absolute;
-  top: 45%; /* Baja el texto más cerca del coche */
+  top: 45%; /* Posición un poco más cerca del coche */
   left: 50%;
   transform: translate(-50%, -270%); /* Centrar horizontalmente y ajustar verticalmente */
-  text-align: center;
+  text-align: left; /* Alinear el texto a la izquierda */
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinear el contenido al inicio (izquierda) */
 }
 
 .brand {
   font-size: 2rem; /* Tamaño de la fuente para la marca */
   color: rgba(255, 255, 255, 0.6); /* Color opaco para la marca */
   font-family: 'Pixelify Sans', sans-serif;
+  margin-left: 0px; /* Alinear el texto al inicio */
 }
 
 .model {
@@ -131,3 +135,24 @@
   border-radius: 4px;
   top: -2px;
 }
+
+.arrowLeft, .arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.arrowLeft {
+  left: -50px; /* Ajusta según sea necesario */
+}
+
+.arrowRight {
+  right: -50px; /* Ajusta según sea necesario */
+}
+
