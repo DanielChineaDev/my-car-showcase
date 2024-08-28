@@ -59,13 +59,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: auto;
-  max-width: 1200px;
-  max-height: 800px;
+  width: 90%; /* Ancho máximo de la imagen en relación con el contenedor */
+  height: auto; /* Mantener la altura automática para preservar la relación de aspecto */
+  max-width: 1200px; /* Ancho máximo absoluto */
+  max-height: 800px; /* Altura máxima absoluta */
   z-index: 1;
   opacity: 0.2;
+  object-fit: contain; /* Asegura que la imagen mantenga su aspecto dentro de los límites */
 }
+
+@media (max-width: 768px) {
+  .backgroundImage {
+    width: 100%; /* Ancho máximo de la imagen para pantallas más pequeñas */
+    max-width: 100%;
+  }
+}
+
 
 .topRightText,
 .bottomLeftText {
