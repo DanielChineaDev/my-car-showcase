@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/CarStats.module.css';
 
 interface CarStatsProps {
-  topSpeed: number; // Número de segmentos llenos (0-5)
-  acceleration: number; // Número de segmentos llenos (0-5)
-  handling: number; // Número de segmentos llenos (0-5)
+  topSpeed: number;
+  acceleration: number;
+  handling: number;
 }
 
 const CarStats: React.FC<CarStatsProps> = ({ topSpeed, acceleration, handling }) => {
+  const [barPositions, setBarPositions] = useState({ topSpeed: 0, acceleration: 0, handling: 0 });
+
+  useEffect(() => {
+    setBarPositions({ topSpeed, acceleration, handling });
+  }, [topSpeed, acceleration, handling]);
+
   const renderSegments = (filledSegments: number, yellowBarPosition: number) => {
     return (
       <div className={styles.statBar}>
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className={`${styles.statSegment} ${i < filledSegments ? styles.filled : ''}`}
-          />
-        ))}
-        <div className={styles.yellowBar} style={{ left: `${yellowBarPosition * 20}%` }}></div>
+        {[...Array(5)].map((_, i) => {
+          const isFilled = i < Math.round(yellowBarPosition);
+          return (
+            <div
+              key={i}
+              className={`${styles.statSegment} ${isFilled ? styles.filled : styles.unfilled}`}
+              style={{
+                transition: `background-color ${isFilled ? 0.5 : 0.2}s ${isFilled ? i * 0.1 : (4 - i) * 0.05}s ease-in-out`,
+              }}
+            />
+          );
+        })}
+        <div
+          className={styles.yellowBar}
+          style={{
+            left: `${yellowBarPosition * 19.5}%`,
+            transition: 'left 0.5s ease-in-out',
+          }}
+        />
       </div>
     );
   };
@@ -26,15 +44,15 @@ const CarStats: React.FC<CarStatsProps> = ({ topSpeed, acceleration, handling })
     <div className={styles.statsContainer}>
       <div className={styles.stat}>
         <div className={styles.statLabel}>TOP SPEED</div>
-        {renderSegments(topSpeed, topSpeed)} {/* El valor `topSpeed` también marca la posición de la barra amarilla */}
+        {renderSegments(topSpeed, barPositions.topSpeed)}
       </div>
       <div className={styles.stat}>
         <div className={styles.statLabel}>ACCELERATION</div>
-        {renderSegments(acceleration, acceleration)} {/* El valor `acceleration` también marca la posición de la barra amarilla */}
+        {renderSegments(acceleration, barPositions.acceleration)}
       </div>
       <div className={styles.stat}>
         <div className={styles.statLabel}>HANDLING</div>
-        {renderSegments(handling, handling)} {/* El valor `handling` también marca la posición de la barra amarilla */}
+        {renderSegments(handling, barPositions.handling)}
       </div>
     </div>
   );
