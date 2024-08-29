@@ -1,4 +1,4 @@
-"use client"; // Indica que este es un componente que solo debe renderizarse en el cliente
+"use client";
 
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
@@ -6,7 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebaseConfig'; // Asegúrate de importar correctamente
+import { db } from '../firebaseConfig';
 import styles from '../styles/CarComponent.module.css';
 import CarStats from './CarStats';
 
@@ -15,6 +15,7 @@ const CarComponent: React.FC = () => {
   const [carData, setCarData] = useState<any>(null);
   const [currentCarIndex, setCurrentCarIndex] = useState(0);
   const [cars, setCars] = useState<any[]>([]);
+  const [resetStats, setResetStats] = useState(true); // Estado para resetear las estadísticas
   const carScene = useRef<THREE.Scene | null>(null);
   const carMesh = useRef<THREE.Group | null>(null);
 
@@ -26,11 +27,11 @@ const CarComponent: React.FC = () => {
         carsList.push(doc.data());
       });
 
-      // Selecciona un índice aleatorio
       const randomIndex = Math.floor(Math.random() * carsList.length);
       setCars(carsList);
       setCurrentCarIndex(randomIndex);
       setCarData(carsList[randomIndex]);
+      setResetStats(false); // Desactiva el reset inicial
     };
 
     fetchCars();
@@ -69,11 +70,10 @@ const CarComponent: React.FC = () => {
 
         console.log("Applying scale:", carData.scale);
 
-        // Aplica la escala desde Firebase (uniformemente en los ejes x, y, z)
         if (typeof carData.scale === 'number') {
           car.scale.set(carData.scale, carData.scale, carData.scale);
         } else {
-          car.scale.set(0.07, 0.07, 0.07); // Escala por defecto si no está especificado
+          car.scale.set(0.07, 0.07, 0.07);
         }
 
         scene.add(car);
@@ -113,15 +113,23 @@ const CarComponent: React.FC = () => {
   }, [carData]);
 
   const handleNextCar = () => {
+    setResetStats(true); // Resetea las estadísticas
     const nextIndex = (currentCarIndex + 1) % cars.length;
     setCurrentCarIndex(nextIndex);
-    setCarData(cars[nextIndex]);
+    setTimeout(() => {
+      setCarData(cars[nextIndex]);
+      setResetStats(false); // Desactiva el reset después de actualizar el coche
+    }, 500); // Añadir un pequeño retraso para visualizar el reset
   };
 
   const handlePrevCar = () => {
+    setResetStats(true); // Resetea las estadísticas
     const prevIndex = (currentCarIndex - 1 + cars.length) % cars.length;
     setCurrentCarIndex(prevIndex);
-    setCarData(cars[prevIndex]);
+    setTimeout(() => {
+      setCarData(cars[prevIndex]);
+      setResetStats(false); // Desactiva el reset después de actualizar el coche
+    }, 500); // Añadir un pequeño retraso para visualizar el reset
   };
 
   return (
@@ -135,7 +143,11 @@ const CarComponent: React.FC = () => {
         <button className={styles.arrowRight} onClick={handleNextCar}>▶</button>
       </div>
       <div className={styles.canvasContainer} ref={mountRef} />
-      <CarStats topSpeed={carData?.maxSpeed} acceleration={carData?.acceleration} handling={carData?.handling} />
+      <CarStats
+        topSpeed={resetStats ? 0 : carData?.maxSpeed}
+        acceleration={resetStats ? 0 : carData?.acceleration}
+        handling={resetStats ? 0 : carData?.handling}
+      />
       <img
         className={styles.backgroundImage}
         src="/revenge_logo.png"
