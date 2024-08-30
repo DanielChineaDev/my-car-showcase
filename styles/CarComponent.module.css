@@ -41,6 +41,8 @@
 
 .model_name_box {
   margin-inline: 30px;
+  display: flex;
+  align-items: center; /* Centrar verticalmente los elementos */
 }
 
 .canvasContainer {
@@ -155,4 +157,10 @@
   background-color: yellow;
   border-radius: 4px;
   top: -2px;
+}
+
+.brandLogo {
+  width: 60px; /* Ajusta según sea necesario */
+  height: auto;
+  margin: 0px 20px 0px 0px;
 }

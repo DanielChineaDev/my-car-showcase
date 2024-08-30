@@ -18,6 +18,14 @@ const CarComponent: React.FC = () => {
   const [resetStats, setResetStats] = useState(true); // Estado para resetear las estadísticas
   const carScene = useRef<THREE.Scene | null>(null);
   const carMesh = useRef<THREE.Group | null>(null);
+  const logos = {
+    BMW: '../images/brands/bmw-logo.svg',
+    Lamborghini: '../images/brands/lamborghini-logo.svg',
+    Mazda: '../images/brands/mazda-logo.svg',
+    Mercedes: '../images/brands/mercedes-logo.svg',
+    Nissan: '../images/brands/nissan-logo.svg',
+    Opel: '../images/brands/opel-logo.svg',
+  };
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -136,17 +144,20 @@ const CarComponent: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.carDetails}>
         <img
-          src="../images/caret-left.svg"
+          src="../images/icons/caret-left.svg"
           className={styles.arrowLeft}
           onClick={handlePrevCar}
           style={{ width: '96px', height: '96px' }}
         />
         <div className={styles.model_name_box}>
-          <div className={styles.brand}>{carData?.name}</div>
-          <div className={styles.model}>{carData?.model}</div>
+          <img
+            className={styles.brandLogo}
+            src={carData?.name ? logos[carData.name] : ''} // Ruta de imagen por defecto si no hay coincidencia
+          />
+          <text className={styles.model}>{carData?.model}</text>
         </div>
         <img
-          src="../images/caret-right.svg"
+          src="../images/icons/caret-right.svg"
           className={styles.arrowLeft}
           onClick={handleNextCar}
           style={{ width: '96px', height: '96px' }}
