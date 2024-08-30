@@ -135,12 +135,22 @@ const CarComponent: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.carDetails}>
-        <button className={styles.arrowLeft} onClick={handlePrevCar}>◀</button>
-        <div>
+        <img
+          src="../images/caret-left.svg"
+          className={styles.arrowLeft}
+          onClick={handlePrevCar}
+          style={{ width: '96px', height: '96px' }}
+        />
+        <div className={styles.model_name_box}>
           <div className={styles.brand}>{carData?.name}</div>
           <div className={styles.model}>{carData?.model}</div>
         </div>
-        <button className={styles.arrowRight} onClick={handleNextCar}>▶</button>
+        <img
+          src="../images/caret-right.svg"
+          className={styles.arrowLeft}
+          onClick={handleNextCar}
+          style={{ width: '96px', height: '96px' }}
+        />
       </div>
       <div className={styles.canvasContainer} ref={mountRef} />
       <CarStats

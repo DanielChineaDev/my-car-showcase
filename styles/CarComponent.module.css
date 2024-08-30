@@ -39,12 +39,8 @@
   padding: 10px 20px; /* Aumenta el espacio entre las flechas y el texto */
 }
 
-.arrowLeft {
-  margin-right: 30px; /* Ajusta la separación de la flecha izquierda */
-}
-
-.arrowRight {
-  margin-left: 30px; /* Ajusta la separación de la flecha derecha */
+.model_name_box {
+  margin-inline: 30px;
 }
 
 .canvasContainer {
