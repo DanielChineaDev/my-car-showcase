@@ -210,13 +210,6 @@ const CarComponent: React.FC = () => {
         src="/revenge_logo.png"
         alt="Background"
       />
-      <div className={styles.topRightText}>TOP RIGHT TEXT</div>
-      <div className={styles.bottomLeftText}>BOTTOM LEFT TEXT</div>
-      <img
-        className={styles.bottomLeftImage}
-        src="/path-to-your-image.png"
-        alt="Bottom Left"
-      />
     </div>
   );
 };

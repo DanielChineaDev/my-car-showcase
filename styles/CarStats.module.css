@@ -1,54 +1,59 @@
 .statsContainer {
-    margin-top: 20px;
-    color: white;
-    font-family: 'Pixelify Sans', sans-serif;
-    text-align: left;
-    z-index: 3;
-    max-width: 200px; /* Ancho máximo de las estadísticas */
-    margin: 0 auto; /* Centrar las estadísticas horizontalmente */
-  }
-  
-  .stat {
-    margin-bottom: 10px;
-  }
-  
-  .statLabel {
-    font-size: 0.8rem; /* Ajustar el tamaño del texto para que sea más pequeño */
-    margin-bottom: 3px;
-  }
-  
-  .statBar {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 7px; /* Altura de cada segmento */
-    margin-bottom: 5px;
-    background-color: #222; /* Color de fondo del tubo */
-    border-radius: 10px; /* Bordes redondeados para crear el efecto de tubo */
-    padding: 2px; /* Espacio interior dentro del tubo */
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna para dar profundidad */
-  }
-  
-  .statSegment {
-    flex: 1;
-    height: 100%;
-    background-color: #444; /* Color del segmento vacío */
-    border-radius: 10px;
-    margin-right: 1px; /* Separación mínima entre los segmentos */
-  }
-  
-  .filled {
-    background-color: #00ccff; /* Color del segmento lleno */
-  }
-  
-  .yellowBar {
-    position: absolute;
-    height: 10px; /* Hace que sobresalga por arriba y por abajo */
-    width: 3px; /* Ancho de la barra amarilla */
-    background-color: yellow; /* Color de la barra amarilla */
-    border-radius: 6px; /* Borde redondeado */
-    top: -2px; /* Posición relativa para que sobresalga por encima y debajo */
-  }
-  
+  margin-top: 20px;
+  color: white;
+  font-family: 'Pixelify Sans', sans-serif;
+  text-align: left;
+  z-index: 3;
+  max-width: 200px; /* Ancho máximo de las estadísticas */
+  margin: 0 auto; /* Centrar las estadísticas horizontalmente */
+}
+
+.stat {
+  margin-bottom: 15px;
+}
+
+.statLabel {
+  font-size: 1.1rem; /* Ajustar el tamaño del texto para que sea más pequeño */
+  margin-bottom: 1px;
+  text-shadow: 
+  -2px -2px 0 #000,  
+  2px -2px 0 #000,
+  -2px 2px 0 #000,
+  2px 2px 0 #000; /* Crea un borde negro alrededor del texto */
+}
+
+.statBar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8px; /* Altura de cada segmento */
+  margin-bottom: 5px;
+  background-color: #222; /* Color de fondo del tubo */
+  border-radius: 10px; /* Bordes redondeados para crear el efecto de tubo */
+  padding: 2px; /* Espacio interior dentro del tubo */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna para dar profundidad */
+}
+
+.statSegment {
+  flex: 1;
+  height: 100%;
+  background-color: #39535a; /* Color del segmento vacío */
+  border-radius: 10px;
+  margin-right: 1px; /* Separación mínima entre los segmentos */
+}
+
+.filled {
+  background-color: #00ccff; /* Color del segmento lleno */
+}
+
+.yellowBar {
+  position: absolute;
+  height: 12px; /* Hace que sobresalga por arriba y por abajo */
+  width: 5px; /* Ancho de la barra amarilla */
+  background-color: #ffff00; /* Color de la barra amarilla */
+  border-radius: 6px; /* Borde redondeado */
+  border: 1px solid black; /* Añadir borde negro a la barra amarilla */
+  top: -2px; /* Posición relativa para que sobresalga por encima y debajo */
+}
