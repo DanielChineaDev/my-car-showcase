@@ -170,7 +170,7 @@ const CarComponent: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.carDetails}>
         <img
-          src="../images/icons/caret-left.svg"
+          src="../images/icons/arrow-left.svg"
           className={styles.arrowLeft}
           onClick={handlePrevCar}
           style={{ width: '96px', height: '96px' }}
@@ -193,7 +193,7 @@ const CarComponent: React.FC = () => {
           </div>
         </div>
         <img
-          src="../images/icons/caret-right.svg"
+          src="../images/icons/arrow-right.svg"
           className={styles.arrowLeft}
           onClick={handleNextCar}
           style={{ width: '96px', height: '96px' }}

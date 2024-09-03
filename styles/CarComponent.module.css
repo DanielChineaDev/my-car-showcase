@@ -15,8 +15,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 80%; /* Fija el ancho del selector */
-  max-width: 1000px; /* Ajusta según sea necesario */
+  width: auto; /* Permitir que el contenedor se ajuste al contenido */
+  max-width: 800px; /* Limitar el ancho máximo */
 }
 
 .model_name_box {
@@ -24,16 +24,17 @@
   align-items: center;
   flex-grow: 1;
   margin-inline: 20px;
+  padding-right: 10px; /* Margen interno para separar el texto del borde */
 }
 
 .model {
-  width: 100%;
   color: #ffffff;
-  font-family: 'Pixelify Sans', sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+  padding-inline: 10px; /* Margen interno para separar el texto del borde */
+
 }
 
 .arrowLeft, .arrowRight {
@@ -42,15 +43,15 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
-  width: 100%; /* Ocupar todo el espacio disponible */
-
+  padding: 10px;
+  width: auto; /* Ajustar automáticamente al contenido */
+  text-align: center;
 }
 
 .brandLogoContainer {
   position: relative;
   display: inline-block;
-  width: 200px; /* Tamaño fijo para el logo */
+  width: 180px; /* Tamaño fijo para el logo */
   height: 100px;
   padding: 10px;
   flex-shrink: 0; /* Evita que se redimensione */
