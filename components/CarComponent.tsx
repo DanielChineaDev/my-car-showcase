@@ -12,6 +12,7 @@ import CarStats from './CarStats';
 
 const CarComponent: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const modelRef = useRef<HTMLDivElement>(null);  // Ref para el contenedor del modelo
   const [carData, setCarData] = useState<any>(null);
   const [currentCarIndex, setCurrentCarIndex] = useState(0);
   const [cars, setCars] = useState<any[]>([]);
@@ -120,6 +121,31 @@ const CarComponent: React.FC = () => {
     };
   }, [carData]);
 
+  useEffect(() => {
+    const adjustFontSize = () => {
+      if (modelRef.current) {
+        const parentWidth = modelRef.current.parentElement?.offsetWidth || 0;
+        let fontSize = 4; // Tamaño de fuente inicial en rem
+
+        modelRef.current.style.fontSize = `${fontSize}rem`;
+
+        // Reduce el tamaño de la fuente si el texto es más ancho que el contenedor
+        while (modelRef.current.scrollWidth > parentWidth && fontSize > 0.5) {
+          fontSize -= 0.1;
+          modelRef.current.style.fontSize = `${fontSize}rem`;
+        }
+      }
+    };
+
+    adjustFontSize();
+
+    window.addEventListener('resize', adjustFontSize);
+
+    return () => {
+      window.removeEventListener('resize', adjustFontSize);
+    };
+  }, [carData]);
+
   const handleNextCar = () => {
     setResetStats(true); // Resetea las estadísticas
     const nextIndex = (currentCarIndex + 1) % cars.length;
@@ -150,11 +176,21 @@ const CarComponent: React.FC = () => {
           style={{ width: '96px', height: '96px' }}
         />
         <div className={styles.model_name_box}>
-          <img
-            className={styles.brandLogo}
-            src={carData?.name ? logos[carData.name] : ''} // Ruta de imagen por defecto si no hay coincidencia
-          />
-          <text className={styles.model}>{carData?.model}</text>
+          <div className={styles.brandLogoContainer}>
+            <img
+              className={styles.brandLogo}
+              src={carData?.name ? logos[carData.name] : ''}
+              alt="Car Brand Logo"
+            />
+            {/* Pseudo-elementos de las esquinas */}
+            <div className={styles.cornerTopLeft}></div>
+            <div className={styles.cornerTopRight}></div>
+            <div className={styles.cornerBottomLeft}></div>
+            <div className={styles.cornerBottomRight}></div>
+          </div>
+          <div className={styles.model} ref={modelRef}>
+            {carData?.model}
+          </div>
         </div>
         <img
           src="../images/icons/caret-right.svg"

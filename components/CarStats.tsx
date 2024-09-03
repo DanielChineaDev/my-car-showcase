@@ -43,15 +43,15 @@ const CarStats: React.FC<CarStatsProps> = ({ topSpeed, acceleration, handling })
   return (
     <div className={styles.statsContainer}>
       <div className={styles.stat}>
-        <div className={styles.statLabel}>TOP SPEED</div>
+        <div className={styles.statLabel}>VELOCIDAD MÁXIMA</div>
         {renderSegments(topSpeed, barPositions.topSpeed)}
       </div>
       <div className={styles.stat}>
-        <div className={styles.statLabel}>ACCELERATION</div>
+        <div className={styles.statLabel}>ACELERACIÓN</div>
         {renderSegments(acceleration, barPositions.acceleration)}
       </div>
       <div className={styles.stat}>
-        <div className={styles.statLabel}>HANDLING</div>
+        <div className={styles.statLabel}>MANEJO</div>
         {renderSegments(handling, barPositions.handling)}
       </div>
     </div>
