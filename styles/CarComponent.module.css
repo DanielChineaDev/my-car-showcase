@@ -27,7 +27,7 @@
 }
 
 .model {
-  max-width: 100%;
+  width: 100%;
   color: #ffffff;
   font-family: 'Pixelify Sans', sans-serif;
   white-space: nowrap;
