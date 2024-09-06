@@ -55,8 +55,9 @@ const CarComponent: React.FC = () => {
     camera.position.set(0, 15, 30);
     camera.lookAt(0, 0, 0);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true }); // Sin antialiasing para mayor velocidad
+    renderer.setSize(window.innerWidth, window.innerHeight); // Reduciendo resolución
+    renderer.setPixelRatio(window.devicePixelRatio / 1.5); // Disminuir el pixel ratio
 
     if (mountRef.current) {
       mountRef.current.appendChild(renderer.domElement);

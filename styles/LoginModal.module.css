@@ -1,0 +1,107 @@
+/* LoginModal.module.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .modalContent {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .modalLeft {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .modalLeft h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .googleButton, .modalButton {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .googleButton {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .modalButton {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .separator {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin: 15px 0;
+  }
+  
+  .modalRight {
+    flex: 1;
+    background-color: #000;
+    color: #fff;
+    background-image: url('../public/images/background_modal.jpg'); /* Imagen de fondo */
+    background-size: cover; /* La imagen cubre todo el contenedor */
+    background-position: center; /* La imagen está centrada */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalRight h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: white; /* Color del texto sobre la imagen */
+  }
+  
+  .modalRight p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: white; /* Color del texto sobre la imagen */
+  }
+  
+  .closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .closeModal:hover {
+    color: #333;
+  }
+  
