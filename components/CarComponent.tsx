@@ -208,7 +208,7 @@ const CarComponent: React.FC = () => {
       />
       <img
         className={styles.backgroundImage}
-        src="/revenge_logo.png"
+        src="/revenge_logo.svg"
         alt="Background"
       />
     </div>
