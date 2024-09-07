@@ -156,24 +156,25 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
             {passwordError && <p className={styles.errorTextPassword}>{passwordError}</p>}
 
             {/* Barra de fuerza de la contraseña con animación */}
-            <div className={styles.passwordStrength}>
-              {[...Array(5)].map((_, i) => {
-                const isFilled = i < passwordStrength; // Define si el segmento está lleno o vacío
-                return (
-                  <div
-                    key={i}
-                    className={`${styles.strengthBar} ${isFilled ? styles.filled : ''}`}
-                    style={{
-                      transition: `background-color ${isFilled ? 0.5 : 0.2}s ${isFilled ? i * 0.1 : (4 - i) * 0.05}s ease-in-out`,
-                    }}
-                  />
-                );
-              })}
-              <span>
+            <div className={styles.passwordStrengthContainer}>
+              <div className={styles.passwordStrength}>
+                {[...Array(5)].map((_, i) => {
+                  const isFilled = i < passwordStrength; // Define si el segmento está lleno o vacío
+                  return (
+                    <div
+                      key={i}
+                      className={`${styles.strengthBar} ${isFilled ? styles.filled : ''}`}
+                      style={{
+                        transition: `background-color ${isFilled ? 0.5 : 0.2}s ${isFilled ? i * 0.1 : (4 - i) * 0.05}s ease-in-out`,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <span className={styles.strengthText}>
                 {passwordStrength <= 2 ? 'Poco segura' : passwordStrength <= 4 ? 'Segura' : 'Muy segura'}
               </span>
             </div>
-
 
             <div className={styles.checkboxContainer}>
               <input

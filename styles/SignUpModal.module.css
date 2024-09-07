@@ -179,19 +179,23 @@
   margin-bottom: 15px;
 }
 
+.passwordStrengthContainer {
+  display: flex;
+  align-items: center; /* Alinea verticalmente las barras y el texto */
+  margin-bottom: 15px;
+}
+
 .passwordStrength {
   display: flex;
-  position: relative;
+  align-items: center; /* Alinea las barras internamente en el centro vertical */
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   height: 8px;
-  margin-bottom: 5px;
-  background-color: #222; /* Color de fondo del tubo */
-  border-radius: 10px; /* Bordes redondeados para crear el efecto de tubo */
-  padding: 2px; /* Espacio interior dentro del tubo */
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna para dar profundidad */
-  margin-top: 10px;
+  background-color: #222;
+  border-radius: 10px;
+  max-width: 285px;
+  padding: 2px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .strengthBar {
@@ -199,17 +203,17 @@
   height: 100%;
   background-color: #39535a; /* Color del segmento vacío */
   border-radius: 10px;
-  margin-right: 1px; /* Separación mínima entre los segmentos */
+  margin-right: 1px;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .strengthBar.filled {
   background-color: #00ccff; /* Color del segmento lleno */
 }
 
-.passwordStrength span {
-  position: absolute;
-  right: 0;
-  top: 12px;
+.strengthText {
+  margin-left: 10px; /* Ajusta la distancia entre la barra y el texto */
   color: gray;
   font-size: 12px;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
