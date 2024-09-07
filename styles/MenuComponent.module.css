@@ -73,14 +73,23 @@
 }
 
 .signupButton {
-  background-color: #ffcc00;
+  background: linear-gradient(90deg, rgb(255, 223, 27), rgb(255, 223, 27), rgb(255, 255, 255), rgb(255, 255, 255)); /* Gradient from white to yellow */
+  background-size: 300% 100%; /* Larger background to allow animation */
   color: #111;
   margin-left: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 2px solid #ffcc00;
+  border-radius: 7.5px;
+  transition: background-position 0.4s ease-in-out, border 0.4s ease-in-out; /* Smooth transition for background and border */
+  transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1), linear; /* Custom cubic-bezier timing */
 }
 
 .signupButton:hover {
-  background-color: transparent;
-  color: white;
+  background-position: 100% 0; /* Moves the gradient */
+  border-color: #ffffff; /* Changes the border to white on hover */
+  color: #111; /* Keeps the text color the same */
 }
 
 /* Estilos del modal */
