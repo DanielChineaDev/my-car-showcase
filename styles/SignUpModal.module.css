@@ -178,3 +178,38 @@
   margin-top: -10px;
   margin-bottom: 15px;
 }
+
+.passwordStrength {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8px;
+  margin-bottom: 5px;
+  background-color: #222; /* Color de fondo del tubo */
+  border-radius: 10px; /* Bordes redondeados para crear el efecto de tubo */
+  padding: 2px; /* Espacio interior dentro del tubo */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna para dar profundidad */
+  margin-top: 10px;
+}
+
+.strengthBar {
+  flex: 1;
+  height: 100%;
+  background-color: #39535a; /* Color del segmento vacío */
+  border-radius: 10px;
+  margin-right: 1px; /* Separación mínima entre los segmentos */
+}
+
+.strengthBar.filled {
+  background-color: #00ccff; /* Color del segmento lleno */
+}
+
+.passwordStrength span {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  color: gray;
+  font-size: 12px;
+}

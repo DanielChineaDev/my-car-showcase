@@ -15,8 +15,8 @@
 .statLabel {
   font-size: 1.1rem; /* Ajustar el tamaño del texto para que sea más pequeño */
   margin-bottom: 1px;
-  text-shadow: 
-  -2px -2px 0 #000,  
+  text-shadow:
+  -2px -2px 0 #000,
   2px -2px 0 #000,
   -2px 2px 0 #000,
   2px 2px 0 #000; /* Crea un borde negro alrededor del texto */
