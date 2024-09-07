@@ -12,6 +12,7 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [passwordStrength, setPasswordStrength] = useState(0); // Medidor de fuerza de contraseña
+  const [showPassword, setShowPassword] = useState(false); // Controlador para mostrar/ocultar contraseña
 
   // Expresión regular para validar correos electrónicos
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -99,6 +100,11 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
     setAgree(!agree);
   };
 
+  // Función para alternar la visibilidad de la contraseña
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   if (!isOpen) return null; // Si el modal no está abierto, no renderiza nada
 
   return (
@@ -145,14 +151,24 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
             />
             {emailError && <p className={styles.errorTextEmail}>{emailError}</p>}
 
-            <input
-              type="password"
-              placeholder="Contraseña"
-              className={`${styles.input} ${styles.fullWidth}`}
-              value={password}
-              onChange={handlePasswordChange}
-              onBlur={handlePasswordBlur}
-            />
+            <div className={styles.passwordContainer}>
+              <input
+                type={showPassword ? 'text' : 'password'} // Mostrar texto o puntos según el estado
+                placeholder="Contraseña"
+                className={`${styles.input} ${styles.fullWidth}`}
+                value={password}
+                onChange={handlePasswordChange}
+                onBlur={handlePasswordBlur}
+              />
+              <button
+                type="button"
+                className={styles.passwordToggle}
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? '👁️' : '🙈'} {/* Ícono para mostrar/ocultar */}
+              </button>
+            </div>
+
             {passwordError && <p className={styles.errorTextPassword}>{passwordError}</p>}
 
             {/* Barra de fuerza de la contraseña con animación */}

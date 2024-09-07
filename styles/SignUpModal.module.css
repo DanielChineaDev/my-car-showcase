@@ -217,3 +217,16 @@
   font-size: 12px;
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 10px;
+  top: 15%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
