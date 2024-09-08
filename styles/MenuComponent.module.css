@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px;
   background-color: transparent; /* Fondo transparente por defecto */
   color: white;
   position: fixed;
@@ -57,19 +57,23 @@
 }
 
 .loginButton, .signupButton {
-  background-color: transparent;
-  border: 2px solid #ffcc00;
-  color: white;
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 223, 27), rgb(255, 223, 27)); /* Gradient from white to yellow */
+  background-size: 300% 100%; /* Larger background to allow animation */
+  color: #111;
   padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 10px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  transition: background-position 0.4s ease-in-out, border 0.4s ease-in-out; /* Smooth transition for background and border */
+  transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1), linear; /* Custom cubic-bezier timing */
+  background-color: transparent;
 }
 
 .loginButton:hover, .signupButton:hover {
-  background-color: #ffcc00;
-  color: #111;
+  background-position: 100% 0; /* Moves the gradient */
+  border-color: #ffcc00; /* Changes the border to white on hover */
+  color: #111; /* Keeps the text color the same */
 }
 
 .signupButton {
@@ -81,7 +85,7 @@
   cursor: pointer;
   font-size: 16px;
   border: 2px solid #ffcc00;
-  border-radius: 7.5px;
+  border-radius: 20px;
   transition: background-position 0.4s ease-in-out, border 0.4s ease-in-out; /* Smooth transition for background and border */
   transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1), linear; /* Custom cubic-bezier timing */
 }

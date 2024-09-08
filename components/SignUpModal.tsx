@@ -2,6 +2,18 @@
 
 import React, { useState } from 'react';
 import styles from '../styles/SignUpModal.module.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import slide_image_1 from '../public/images/background_modal.jpg';
+import slide_image_2 from '../public/images/hyundai-i20n.jpg';
+import slide_image_3 from '../public/images/golf-r.jpg';
 
 const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLogin: () => void }> = ({ isOpen, onClose, onSwitchToLogin }) => {
   const [agree, setAgree] = useState(false);
@@ -112,13 +124,48 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         {/* Panel izquierdo con mensaje de la comunidad */}
         <div className={styles.modalLeft}>
-          <h3>Únete a la comunidad de coches más grande</h3>
-          <p>Forma parte de algo grande.</p>
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[EffectCoverflow, Pagination, Autoplay]}
+            className={styles.mySwiper}
+          >
+            <SwiperSlide>
+              <Image src={slide_image_1} alt="slide_image_1" layout="fill" objectFit="cover" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={slide_image_2} alt="slide_image_2" layout="fill" objectFit="cover" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={slide_image_3} alt="slide_image_3" layout="fill" objectFit="cover" />
+            </SwiperSlide>
+          </Swiper>
+
+          {/* Texto centrado sobre el carrusel */}
+          <div className={styles.carouselText}>
+            <h3>Bienvenido al club de coches más grande de canarias</h3>
+            <p>Forma parte de algo único...</p>
+          </div>
         </div>
 
         {/* Panel derecho con el formulario de registro */}
         <div className={styles.modalRight}>
-          <h2>¡Únete al club!</h2>
+          <h2>¡Únete a la comunidad!</h2>
           <p>
             ¿Ya tienes cuenta? <a href="#" onClick={onSwitchToLogin}>Iniciar sesión</a>
           </p>

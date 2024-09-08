@@ -26,24 +26,63 @@
 /* Left panel now contains the community message */
 .modalLeft {
   flex: 1;
-  padding: 40px;
+  padding: 0;
   background-color: #000;
   color: white;
-  background-image: url('../public/images/background_modal.jpg'); /* Background image */
-  background-size: cover;
-  background-position: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
-.modalLeft h3 {
+.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fondo traslúcido y con blur para el texto */
+.carouselText {
+  position: absolute;
+  top: 73.5%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  margin: 0px 20px;
+  border-radius: 15px;
+  z-index: 1;
+  background-color: rgba(30, 30, 44, 0.7); /* Fondo translúcido con color #1E1E2C */
+  backdrop-filter: blur(10px); /* Efecto de blur */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+}
+
+/* Estilos globales dentro de una clase local */
+
+.modalLeft :global(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.modalLeft :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+  background-color: #ffcc00;
+}
+
+.carouselText h3 {
   font-size: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.modalLeft p {
+.carouselText p {
   font-size: 16px;
+  padding-bottom: 2.5px;
 }
 
 /* Right panel now contains the Create an account form */
