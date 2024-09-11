@@ -1,0 +1,250 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ajuste para el lado izquierdo (el carrusel) */
+.modalLeft {
+  flex: 1;
+  padding: 0;
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Para que las imágenes no se desborden */
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen de fondo para que se ajuste al contenedor */
+}
+
+.carouselText {
+  position: absolute;
+  top: 73.5%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  margin: 0px 20px;
+  border-radius: 15px;
+  z-index: 1;
+  background-color: rgba(30, 30, 44, 0.7); /* Fondo translúcido */
+  backdrop-filter: blur(10px);
+}
+
+/* Estilos para el contenido del texto */
+.carouselText h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.carouselText p {
+  font-size: 16px;
+}
+
+/* Estilos para el lado derecho del modal (formulario) */
+.modalRight {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1E1E2C;
+  color: #fff;
+}
+
+.modalRight h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.modalRight p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+  width: 48%;
+}
+
+.fullWidth {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkboxContainer label {
+  color: #bbb;
+}
+
+.createAccountButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #7259EF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.createAccountButton:hover {
+  background-color: #634dd9;
+}
+
+.orText {
+  text-align: center;
+  margin: 20px 0;
+  color: #aaa;
+}
+
+.socialButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 48%;
+}
+
+.socialButton img {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.closeModal:hover {
+  color: #333;
+}
+
+/* Añadir algunas mejoras visuales para los errores */
+.errorTextEmail,
+.errorTextPassword {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.passwordStrengthContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.passwordStrength {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 8px;
+  background-color: #222;
+  border-radius: 10px;
+  max-width: 285px;
+  padding: 2px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.strengthBar {
+  flex: 1;
+  height: 100%;
+  background-color: #39535a;
+  border-radius: 10px;
+  margin-right: 1px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.strengthBar.filled {
+  background-color: #00ccff;
+}
+
+.strengthText {
+  margin-left: 10px;
+  color: gray;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 10px;
+  top: 15%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
