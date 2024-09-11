@@ -14,6 +14,7 @@ const Navbar: React.FC = () => {
     setIsSignUpModalOpen(false); // Asegúrate de que se cierra el modal de registro
   };
 
+  
   const closeLoginModal = () => setIsLoginModalOpen(false);
 
   const openSignUpModal = () => {
@@ -47,7 +48,11 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Renderiza el modal cuando se haga clic en "Iniciar Sesión" */}
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={closeLoginModal} 
+        onSwitchToSignUp={openSignUpModal}
+        />
       <SignUpModal
         isOpen={isSignUpModalOpen}
         onClose={closeSignUpModal}

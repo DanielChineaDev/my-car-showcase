@@ -21,6 +21,9 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
+
+  min-height: 600px; /* Ajusta según sea necesario */
+
 }
 
 /* Left panel now contains the community message */
