@@ -14,7 +14,7 @@
 .modalContent {
   display: flex;
   flex-direction: row;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 20px;
   max-width: 900px;
   width: 100%;
@@ -128,6 +128,7 @@
   background-color: #333;
   color: #fff;
   width: 48%;
+
 }
 
 .fullWidth {
@@ -180,17 +181,25 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: #333;
-  border-radius: 8px;
+  background-color: #333; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
   color: white;
   cursor: pointer;
   width: 48%;
+  border: none; /* Elimina cualquier borde */
+  box-shadow: none; /* Elimina cualquier sombra */
+  transition: background-color 0.3s ease; /* Transición para el cambio de color */
+}
+
+.socialButton:hover {
+  background-color: #444; /* Cambia el color al pasar el cursor */
 }
 
 .socialButton img {
   margin-right: 10px;
   width: 20px;
 }
+
 
 .closeModal {
   position: absolute;

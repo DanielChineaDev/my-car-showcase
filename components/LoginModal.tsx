@@ -59,7 +59,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         {/* Panel izquierdo con el formulario de inicio de sesión */}
         <div className={styles.modalLeft}>
-          <h2>Iniciar sesión</h2>
+          <h2>Nos alegra verte de nuevo</h2>
           <p>
             ¿No tienes cuenta? <a href="#" onClick={() => { onClose(); onSwitchToSignUp(); }}>Regístrate</a>
           </p>

@@ -144,3 +144,70 @@
 .modalClose:hover {
   color: #111;
 }
+
+.userMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  transition: border 0.4s ease-in-out;
+}
+
+.userButton:hover {
+  border-color: #ffcc00;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.userMenu:hover .dropdownMenu {
+  display: block;
+}
+
+.dropdownMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownMenu ul li {
+  margin-bottom: 10px;
+}
+
+.dropdownMenu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.dropdownMenu ul li a:hover {
+  color: #ffcc00;
+}
+
+.dropdownMenu ul li:last-child {
+  margin-bottom: 0;
+}

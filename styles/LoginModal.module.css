@@ -14,7 +14,7 @@
 .modalContent {
   display: flex;
   flex-direction: row; /* Flex en fila */
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 20px;
   max-width: 900px;
   width: 100%;
@@ -38,6 +38,10 @@
 .modalLeft h2 {
   font-size: 36px;
   margin-bottom: 10px;
+}
+
+.modalLeft h2 + p{
+  margin-bottom: 50px;
 }
 
 .loginForm {
@@ -66,7 +70,7 @@
 .passwordToggle {
   position: absolute;
   right: 10px;
-  top: 30%;
+  top: 12%;
   background: none;
   border: none;
   cursor: pointer;
@@ -81,6 +85,8 @@
   color: white;
   font-size: 16px;
   cursor: pointer;
+    margin-top: 20px; /* Añade margen superior para separación del último input */
+  margin-bottom: 20px;
 }
 
 .createAccountButton:hover {
@@ -89,13 +95,15 @@
 
 .orText {
   text-align: center;
-  margin: 20px 0;
+  margin-top: 20px; /* Ajusta la separación superior */
+  margin-bottom: 20px; /* Ajusta la separación inferior */
   color: #aaa;
 }
 
 .socialButtons {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px; /* Añade margen superior para separar del texto "o inicia sesión con" */
 }
 
 .socialButton {
@@ -103,11 +111,18 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: #333;
-  border-radius: 8px;
+  background-color: #333; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
   color: white;
   cursor: pointer;
   width: 48%;
+  border: none; /* Elimina cualquier borde */
+  box-shadow: none; /* Elimina cualquier sombra */
+  transition: background-color 0.3s ease; /* Transición para el cambio de color */
+}
+
+.socialButton:hover {
+  background-color: #444; /* Cambia el color al pasar el cursor */
 }
 
 .socialButton img {
@@ -115,7 +130,24 @@
   width: 20px;
 }
 
+
 /* Panel derecho: Carrusel */
+/* Estilos de los indicadores del carrusel */
+.modalRight :global(.swiper-pagination-bullet) {
+  width: 25px; /* Ajusta el ancho de los rectángulos */
+  height: 5px; /* Ajusta la altura de los rectángulos */
+  background-color: #9a9a9a; /* Color del botón de "Iniciar Sesión" */
+  opacity: 0.5; /* Opacidad para los indicadores inactivos */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 4px; /* Borde redondeado para darles un estilo rectangular */
+}
+
+.modalRight :global(.swiper-pagination-bullet-active) {
+  opacity: 1; /* Indicador activo completamente opaco */
+  background-color: #7259EF; /* Color más oscuro para el indicador activo */
+  transform: scale(1.3); /* Aumenta el tamaño del indicador activo para darle énfasis */
+}
+
 .modalRight {
   flex: 1;
   padding: 0;
@@ -142,6 +174,7 @@
   background-color: rgba(30, 30, 44, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 .closeModal {
@@ -153,6 +186,7 @@
   font-size: 24px;
   cursor: pointer;
   color: #999;
+  z-index: 10;
 }
 
 .closeModal:hover {
