@@ -221,7 +221,13 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
             {firebaseError && <p className={styles.errorText}>{firebaseError}</p>}
 
             <button className={styles.createAccountButton} type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Creando cuenta...' : 'Únete'}
+              {isSubmitting ? (
+                <>
+                  <span className={styles.spinner}></span> Creando cuenta...
+                </>
+              ) : (
+                'Únete'
+              )}
             </button>
           </form>
         </div>

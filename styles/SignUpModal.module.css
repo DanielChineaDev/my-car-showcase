@@ -85,7 +85,7 @@
 
 .modalLeft :global(.swiper-pagination-bullet-active) {
   opacity: 1; /* Indicador activo completamente opaco */
-  background-color: #477beb; /* Color más oscuro para el indicador activo */
+  background-color: var(--primary-color); /* Color más oscuro para el indicador activo */
   transform: scale(1.3); /* Aumenta el tamaño del indicador activo para darle énfasis */
 }
 
@@ -112,6 +112,10 @@
 .modalRight p {
   font-size: 16px;
   margin-bottom: 15px;
+}
+
+.modalRight h2 + p{
+  margin-bottom: 50px;
 }
 
 .signupForm {
@@ -144,7 +148,7 @@
 .checkboxContainer {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .checkboxContainer input[type="checkbox"] {
@@ -158,7 +162,7 @@
 .createAccountButton {
   width: 100%;
   padding: 12px;
-  background-color: #7259EF;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 8px;
   color: white;
@@ -218,11 +222,13 @@
   height: 40px; /* Altura del botón */
   border-radius: 50%; /* Hace que el botón sea circular */
   transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+  transition: transform 0.5s ease, background-color 0.3s ease; /* Transición suave */
   z-index: 1;
 }
 
 .closeModal:hover {
   background-color: rgba(255, 255, 255, 0.9); /* Aumenta la opacidad al hacer hover */
+  transform: rotate(180deg); /* Gira 180 grados en hover */
 }
 
 .errorTextEmail {
@@ -289,4 +295,24 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  margin-right: 8px; /* Espacio entre el spinner y el texto */
+  display: inline-block; /* Para alinearlo con el texto */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

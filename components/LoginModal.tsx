@@ -22,6 +22,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [firebaseError, setFirebaseError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar si se está enviando el formulario
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
@@ -29,11 +30,14 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
   // Función para iniciar sesión con correo y contraseña
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true); // Comienza el envío
     try {
       await signInWithEmailAndPassword(auth, email, password);
       onClose();  // Cierra el modal al iniciar sesión correctamente
     } catch (error: any) {
       setFirebaseError('Error al iniciar sesión. Verifica tus credenciales.');
+    } finally {
+      setIsSubmitting(false); // Finaliza el envío
     }
   };
 
@@ -58,7 +62,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         {/* Panel izquierdo con el formulario de inicio de sesión */}
         <div className={styles.modalLeft}>
-          <h2>Nos alegra verte de nuevo</h2>
+          <h2>¡Nos alegra verte de nuevo!</h2>
           <p>
             ¿No tienes cuenta? <a href="#" onClick={() => { onClose(); onSwitchToSignUp(); }}>Regístrate</a>
           </p>
@@ -88,8 +92,14 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
 
             {firebaseError && <p className={styles.errorText}>{firebaseError}</p>}
 
-            <button className={styles.createAccountButton}>
-              Iniciar Sesión
+            <button className={styles.createAccountButton} type="submit" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <span className={styles.spinner}></span> Iniciando sesión...
+                </>
+              ) : (
+                'Iniciar Sesión'
+              )}
             </button>
           </form>
 

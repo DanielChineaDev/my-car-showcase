@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #7259EF; /* Color primario */
+}
+
+
 * {
   box-sizing: border-box;
   padding: 0;
