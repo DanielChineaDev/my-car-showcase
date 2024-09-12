@@ -1,4 +1,5 @@
 import React from 'react';
+import CarComponent from '../components/CarComponent';
 import styles from '../styles/AboutUs.module.css';
 
 const Section2: React.FC = () => {
@@ -12,6 +13,7 @@ const Section2: React.FC = () => {
         <h3>Selector de Coches</h3>
         {/* Aquí puedes implementar el selector de coches */}
       </div>
+      <CarComponent />
 
       <p>Texto adicional sobre el club y sus miembros.</p>
     </section>
