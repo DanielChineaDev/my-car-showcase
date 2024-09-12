@@ -1,0 +1,33 @@
+.section3 {
+    padding: 100px 50px;
+    text-align: center;
+  }
+  
+  .carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .joinButton {
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff8000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .joinButton:hover {
+    background-color: #ff6600;
+  }
+  
+  .section3 p {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  

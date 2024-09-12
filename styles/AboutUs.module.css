@@ -1,0 +1,16 @@
+.section2 {
+    padding: 100px 50px;
+    text-align: center;
+  }
+  
+  .section2 p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .carSelector {
+    margin: 50px 0;
+  }
+  
