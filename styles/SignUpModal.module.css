@@ -21,9 +21,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
-
   min-height: 600px; /* Ajusta según sea necesario */
-
 }
 
 /* Left panel now contains the community message */
@@ -48,10 +46,14 @@
   object-fit: cover;
 }
 
+.mySwiper .swiper-slide {
+  transition-timing-function: ease-in-out;
+}
+
 /* Fondo traslúcido y con blur para el texto */
 .carouselText {
   position: absolute;
-  top: 73.5%;
+  top: 75%;
   text-align: center;
   color: white;
   padding: 10px;
@@ -63,29 +65,32 @@
   -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
 }
 
-/* Estilos globales dentro de una clase local */
-
-.modalLeft :global(.swiper-pagination-bullet) {
-  width: 12px;
-  height: 12px;
-  background-color: white;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.modalLeft :global(.swiper-pagination-bullet-active) {
-  opacity: 1;
-  background-color: #ffcc00;
-}
-
-.carouselText h3 {
-  font-size: 24px;
+.carouselText h2 {
   margin-bottom: 10px;
 }
 
 .carouselText p {
-  font-size: 16px;
   padding-bottom: 2.5px;
+}
+
+/* Estilos globales dentro de una clase local */
+.modalLeft :global(.swiper-pagination-bullet) {
+  width: 25px; /* Ajusta el ancho de los rectángulos */
+  height: 5px; /* Ajusta la altura de los rectángulos */
+  background-color: #9a9a9a; /* Color del botón de "Iniciar Sesión" */
+  opacity: 0.5; /* Opacidad para los indicadores inactivos */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  border-radius: 4px; /* Borde redondeado para darles un estilo rectangular */
+}
+
+.modalLeft :global(.swiper-pagination-bullet-active) {
+  opacity: 1; /* Indicador activo completamente opaco */
+  background-color: #477beb; /* Color más oscuro para el indicador activo */
+  transform: scale(1.3); /* Aumenta el tamaño del indicador activo para darle énfasis */
+}
+
+.modalLeft :global(.swiper-pagination-horizontal) {
+  margin-bottom: 6px;
 }
 
 /* Right panel now contains the Create an account form */
@@ -200,20 +205,24 @@
   width: 20px;
 }
 
-
 .closeModal {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: transparent;
+  top: 15px; /* Ajusta según sea necesario */
+  left: 845px; /* Ajusta según sea necesario */
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco con 70% de opacidad */
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #999;
+  color: #222;
+  width: 40px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  border-radius: 50%; /* Hace que el botón sea circular */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+  z-index: 1;
 }
 
 .closeModal:hover {
-  color: #333;
+  background-color: rgba(255, 255, 255, 0.9); /* Aumenta la opacidad al hacer hover */
 }
 
 .errorTextEmail {

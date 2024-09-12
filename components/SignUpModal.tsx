@@ -3,14 +3,13 @@
 import React, { useState } from 'react';
 import styles from '../styles/SignUpModal.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { auth, db } from '../firebaseConfig'; // Importamos Firebase Auth y Firestore
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
@@ -27,7 +26,6 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
   const [agree, setAgree] = useState(false);
   const [firebaseError, setFirebaseError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
   const [showPassword, setShowPassword] = useState(false); // Estado para mostrar u ocultar la contraseña
 
   // Función para medir la fuerza de la contraseña
@@ -103,40 +101,33 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
         {/* Panel izquierdo con mensaje de la comunidad */}
         <div className={styles.modalLeft}>
           <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
             slidesPerView={'auto'}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            pagination={{ clickable: true }}
+            pagination={{ clickable: false }}
             loop={true}
+            spaceBetween={2.5}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
             }}
-            modules={[EffectCoverflow, Pagination, Autoplay]}
+            allowTouchMove={false}
+            speed={750}
+            modules={[Pagination, Autoplay]}
             className={styles.mySwiper}
           >
             <SwiperSlide>
-              <Image src={slide_image_1} alt="slide_image_1" layout="fill" objectFit="cover" />
+              <Image src={slide_image_1} alt="slide_image_1" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={slide_image_2} alt="slide_image_2" layout="fill" objectFit="cover" />
+              <Image src={slide_image_2} alt="slide_image_2" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={slide_image_3} alt="slide_image_3" layout="fill" objectFit="cover" />
+              <Image src={slide_image_3} alt="slide_image_3" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
           </Swiper>
 
           {/* Texto centrado sobre el carrusel */}
           <div className={styles.carouselText}>
-            <h3>Bienvenido al club de coches más grande de Canarias</h3>
+            <h2>Bienvenido al club de coches más grande de Canarias</h2>
             <p>Forma parte de algo único...</p>
           </div>
         </div>

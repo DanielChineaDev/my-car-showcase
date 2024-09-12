@@ -3,13 +3,12 @@
 import React, { useState } from 'react';
 import styles from '../styles/LoginModal.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { auth } from '../firebaseConfig';  // Firebase auth
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
@@ -110,39 +109,32 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
 
         {/* Panel derecho con el carrusel */}
         <div className={styles.modalRight}>
-          <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
+        <Swiper
             slidesPerView={'auto'}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            pagination={{ clickable: true }}
+            pagination={{ clickable: false }}
             loop={true}
+            spaceBetween={2.5}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
             }}
-            modules={[EffectCoverflow, Pagination, Autoplay]}
+            allowTouchMove={false}
+            speed={750}
+            modules={[Pagination, Autoplay]}
             className={styles.mySwiper}
           >
             <SwiperSlide>
-              <Image src={slide_image_1} alt="slide_image_1" layout="fill" objectFit="cover" />
+              <Image src={slide_image_1} alt="slide_image_1" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={slide_image_2} alt="slide_image_2" layout="fill" objectFit="cover" />
+              <Image src={slide_image_2} alt="slide_image_2" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={slide_image_3} alt="slide_image_3" layout="fill" objectFit="cover" />
+              <Image src={slide_image_3} alt="slide_image_3" layout="fill" objectFit="cover" draggable={false} />
             </SwiperSlide>
           </Swiper>
           <div className={styles.carouselText}>
-            <h3>Bienvenido de vuelta</h3>
+            <h2>Bienvenido de vuelta</h2>
             <p>Inicia sesión para continuar</p>
           </div>
         </div>

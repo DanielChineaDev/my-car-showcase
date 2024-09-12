@@ -205,7 +205,12 @@
 }
 
 .dropdownMenu ul li a:hover {
-  color: #ffcc00;
+  color: #ffcc00; /* Color de hover predeterminado */
+}
+
+/* Cambiar el color de hover solo para "Cerrar Sesión" */
+.dropdownMenu ul li:last-child a:hover {
+  color: rgb(250, 90, 90); /* Cambiar a rojo en hover */
 }
 
 .dropdownMenu ul li:last-child {
