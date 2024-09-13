@@ -26,7 +26,7 @@ const Section1: React.FC = () => {
       {/* Primera tarjeta en la parte superior derecha */}
       <div className={`${styles.cardContainer} ${styles.topRight}`}>
         <div className={styles.card} onClick={() => openModal('/video_home.mp4')}>
-          <img src="/images/background_modal.jpg" alt="Video Splash 1" className={styles.cardImage} />
+          <img src="/images/hyundai-i20n.jpg" alt="Video Splash 1" className={styles.cardImage} />
           <img src="/images/play_icon.png" alt="Play" className={styles.playButton} /> {/* Imagen de play */}
         </div>
         <h3 className={styles.cardTitle}>¿Quiénes somos?</h3>
