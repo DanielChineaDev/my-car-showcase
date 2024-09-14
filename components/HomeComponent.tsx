@@ -23,26 +23,28 @@ const Section1: React.FC = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Primera tarjeta en la parte superior derecha */}
-      <div className={`${styles.cardContainer} ${styles.topRight}`}>
-        <div className={styles.card} onClick={() => openModal('/video_home.mp4')}>
-          <img src="/images/hyundai-i20n.jpg" alt="Video Splash 1" className={styles.cardImage} />
-          <img src="/images/play_icon.png" alt="Play" className={styles.playButton} /> {/* Imagen de play */}
-        </div>
-        <h3 className={styles.cardTitle}>¿Quiénes somos?</h3>
-      </div>
-
       <div className={styles.slogan}>
         <h1>Forma parte de la leyenda</h1>
+        <p className={styles.subtitle}>Descubre nuestras historias y eventos</p> {/* Subtítulo */}
       </div>
 
-      {/* Segunda tarjeta en la parte inferior izquierda */}
-      <div className={`${styles.cardContainer} ${styles.bottomLeft}`}>
+      {/* Contenedor de las tarjetas */}
+      <div className={styles.cardContainer}>
         <div className={styles.card} onClick={() => openModal('/video_home.mp4')}>
-          <img src="/images/background_modal.jpg" alt="Video Splash 2" className={styles.cardImage} />
-          <img src="/images/play_icon.png" alt="Play" className={styles.playButton} /> {/* Imagen de play */}
+          <div className={styles.cardImageContainer}>
+            <img src="/images/hyundai-i20n.jpg" alt="Video Splash 1" className={styles.cardImage} />
+            <img src="/images/play_icon.png" alt="Play" className={styles.playButton} /> {/* Imagen de play */}
+          </div>
+          <h3 className={styles.cardTitle}>¿Quiénes somos?</h3> {/* Texto debajo */}
         </div>
-        <h3 className={styles.cardTitle}>Eventos</h3>
+
+        <div className={styles.card} onClick={() => openModal('/video_home.mp4')}>
+          <div className={styles.cardImageContainer}>
+            <img src="/images/background_modal.jpg" alt="Video Splash 2" className={styles.cardImage} />
+            <img src="/images/play_icon.png" alt="Play" className={styles.playButton} /> {/* Imagen de play */}
+          </div>
+          <h3 className={styles.cardTitle}>Eventos</h3> {/* Texto debajo */}
+        </div>
       </div>
 
       {/* Modal del video */}
