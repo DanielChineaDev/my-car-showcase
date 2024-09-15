@@ -101,7 +101,7 @@
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  background-color: #1E1E2C;
+  background-color: var(--background-color);
 }
 
 .modalRight h2 {

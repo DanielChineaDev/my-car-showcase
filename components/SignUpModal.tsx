@@ -70,6 +70,7 @@ const SignUpModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToLo
         lastName,
         email,
         avatarUrl: "",
+        notifications: 0,
         cars: [],
         role: "user",
         accountStatus: "active",

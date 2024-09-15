@@ -1,71 +1,127 @@
-/* SideMenuComponent.module.css */
-
 .sidebar {
   width: 200px;
   height: 100vh;
-  background-color: #111;
+  background-color: #1E1E2C;
   display: flex;
   flex-direction: column;
   padding: 10px;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100; /* Para asegurarnos de que esté siempre por encima */
+  z-index: 100;
   color: white;
 }
-  
-  .logo {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .logo img {
-    width: 100px;
 
-  }
-  
-  .menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menuItem {
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .menuItem:hover {
-    background-color: #333;
-    border-radius: 50px;
-    cursor: pointer;
-  }
-  
-  .icon {
-    margin-right: 10px;
-    font-size: 14px;
-  }
-  
-  .text {
-    flex-grow: 1;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .badge {
-    background-color: #f00;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-  }
-  
-  .hrDivider {
-    border: none;
-    height: 1px;
-    background-color: #444;
-    margin: 20px 0;
-  }
-  
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  padding: 10px;
+  color: rgb(201, 201, 201);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.menuItem:hover {
+  background-color: #81818125;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 15px; /* Ajusta el espacio entre el ícono y el texto */
+  font-size: 14px;
+}
+
+.text {
+  flex-grow: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.badge {
+  color: #838383;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.hrDivider {
+  border: none;
+  height: 1px;
+  background-color: #4747471f;
+  margin: 20px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  color: #64648f;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.logoutButton {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: 20px; /* Añade espacio inferior */
+  display: block;
+}
+
+.logoutButton:hover {
+  background-color: #ff1a1a;
+}
+
+/* Nuevos estilos para la tarjeta de usuario */
+.userCard {
+  display: flex;
+  align-items: center;
+  background-color: #81818125;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.avatarContainer {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  position: relative; /* Necesario para que funcione layout="fill" de Next.js Image */
+  border-radius: 50%; /* Para que la imagen sea circular */
+  overflow: hidden; /* Para que la imagen no se salga del borde circular */
+}
+
+.userAvatar {
+  object-fit: cover; /* Esto asegura que la imagen mantenga la proporción */
+  width: 100%;
+  height: 100%;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.userRole {
+  font-size: 12px;
+  color: #888;
+}

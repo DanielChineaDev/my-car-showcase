@@ -115,7 +115,7 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.container}>
-      <Sidebar/>
+      <Sidebar user={editableFields}/>
 
       <div className={styles.profileContent}>
         <h1>Perfil de {editableFields.firstName} {editableFields.lastName}</h1>
