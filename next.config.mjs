@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    images: {
+      domains: ['www.sentieriselvaggi.it'], // Añade los dominios permitidos para imágenes externas
+    },
+  };
+  
+  export default nextConfig;
+  

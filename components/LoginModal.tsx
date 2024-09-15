@@ -19,7 +19,6 @@ import slide_image_3 from '../public/images/golf-r.jpg';
 const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSignUp: () => void }> = ({ isOpen, onClose, onSwitchToSignUp }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [firebaseError, setFirebaseError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar si se está enviando el formulario

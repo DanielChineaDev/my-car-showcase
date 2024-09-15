@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  /* Alineamos el contenido con un margen izquierdo para el menú lateral */
+  .profileContent {
+    flex-grow: 1;
+    margin-left: 200px; /* El ancho del menú lateral */
+    padding: 35px;
+    background-color: #f4f4f4;
+  }
+  
+  .profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .logoutButton {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .profileDetails h2 {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  .profileDetails p {
+    margin: 10px 0;
+  }
+  
+  .editButton,
+  .saveButton,
+  .cancelButton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .carItem {
+    margin-bottom: 15px;
+  }
+  
+  /* Cambia el selector global "input" por una clase específica */
+.inputField {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+  
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+  }

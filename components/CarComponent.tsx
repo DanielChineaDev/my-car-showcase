@@ -8,7 +8,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import styles from '../styles/CarComponent.module.css';
-import CarStats from './CarStats';
+import CarStats from './CarStatsComponent';
 
 const CarComponent: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
