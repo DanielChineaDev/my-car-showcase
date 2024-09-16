@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/MoreInfo.module.css';
+import styles from '../../styles/home/MoreInfo.module.css';
 
 const Section3: React.FC = () => {
   return (

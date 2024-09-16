@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faWarehouse, faFolderClosed, faCircleXmark, faGear, faGrip, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from 'firebase/auth';
-import styles from '../styles/SideMenuComponent.module.css';
+import styles from '../../styles/navigation/SideMenuComponent.module.css';
 import Image from 'next/image';
 
 const Sidebar = ({ user, selectedSection, onSectionChange }) => {

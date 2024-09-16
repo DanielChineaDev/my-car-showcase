@@ -1,6 +1,6 @@
 // components/LoadingSpinner.tsx
 import React from 'react';
-import styles from '../styles/LoadingSpinnerComponent.module.css';
+import styles from '../../styles/LoadingSpinnerComponent.module.css';
 
 const LoadingSpinner = () => {
   return (

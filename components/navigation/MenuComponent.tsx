@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
-import styles from '../styles/MenuComponent.module.css';
-import LoginModal from './LoginModal';
-import SignUpModal from './SignUpModal';
-import { auth, db } from '../firebaseConfig';
+import styles from '../../styles/navigation/MenuComponent.module.css';
+import LoginModal from '../auth/LoginModal';
+import SignUpModal from '../auth/SignUpModal';
+import { auth, db } from '../../firebaseConfig';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 

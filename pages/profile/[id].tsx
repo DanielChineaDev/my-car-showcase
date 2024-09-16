@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Importa la autenticación de Firebase
 import { db } from '../../firebaseConfig';
-import Sidebar from '@/components/SideMenuComponent';
-import LoadingSpinner from '@/components/LoadingSpinnerComponent';
+import Sidebar from '@/components/navigation/SideMenuComponent';
+import LoadingSpinner from '../../components/loading/LoadingSpinnerComponent';
 import styles from '../../styles/ProfilePage.module.css';
 
 const ProfilePage = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import CarComponent from '../components/CarComponent';
-import styles from '../styles/AboutUs.module.css';
+import CarComponent from '../../components/cars/CarComponent';
+import styles from '../../styles/home/AboutUs.module.css';
 
 const Section2: React.FC = () => {
   return (

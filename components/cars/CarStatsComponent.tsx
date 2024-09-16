@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/CarStats.module.css';
+import styles from '../../styles/cars/CarStats.module.css';
 
 interface CarStatsProps {
   topSpeed: number;

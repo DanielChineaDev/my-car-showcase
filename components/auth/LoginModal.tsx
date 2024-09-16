@@ -1,20 +1,20 @@
 "use client";
 
 import React, { useState } from 'react';
-import styles from '../styles/LoginModal.module.css';
+import styles from '../../styles/auth/LoginModal.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import { auth } from '../firebaseConfig';  // Firebase auth
+import { auth } from '../../firebaseConfig';  // Firebase auth
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import slide_image_1 from '../public/images/background_modal.jpg';
-import slide_image_2 from '../public/images/hyundai-i20n.jpg';
-import slide_image_3 from '../public/images/golf-r.jpg';
+import slide_image_1 from '../../public/images/background_modal.jpg';
+import slide_image_2 from '../../public/images/hyundai-i20n.jpg';
+import slide_image_3 from '../../public/images/golf-r.jpg';
 
 const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSignUp: () => void }> = ({ isOpen, onClose, onSwitchToSignUp }) => {
   const [email, setEmail] = useState('');

@@ -6,8 +6,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebaseConfig';
-import styles from '../styles/CarComponent.module.css';
+import { db } from '../../firebaseConfig';
+import styles from '../../styles/cars/CarComponent.module.css';
 import CarStats from './CarStatsComponent';
 
 const CarComponent: React.FC = () => {

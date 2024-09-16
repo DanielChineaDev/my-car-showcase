@@ -1,10 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import CarComponent from '../components/CarComponent';
-import MenuComponent from '../components/MenuComponent';
-import HomeView from '../components/HomeComponent';
-import AboutUs from '../components/AboutUsComponent';
-import MoreInfo from '../components/MoreInfoComponent';
+import CarComponent from '../components/cars/CarComponent';
+import MenuComponent from '../components/navigation/MenuComponent';
+import HomeView from '../components/home/HomeComponent';
+import AboutUs from '../components/home/AboutUsComponent';
+import MoreInfo from '../components/home/MoreInfoComponent';
 import ProfileComponent from '../pages/profile/[id]';
 
 import Head from 'next/head';
