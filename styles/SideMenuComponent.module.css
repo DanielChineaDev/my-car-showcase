@@ -131,3 +131,24 @@
   font-size: 12px;
   color: #888;
 }
+
+/* Estilo para el botón de volver */
+.backButton {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.backButton:hover {
+  color: #ccc; /* Cambia de color al pasar el ratón */
+}
+
+.backButton svg {
+  margin-right: 8px; /* Espacio entre el ícono de la flecha y el texto */
+}

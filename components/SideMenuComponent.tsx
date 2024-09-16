@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faWarehouse, faFolderClosed, faGear, faGrip } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faWarehouse, faFolderClosed, faCircleXmark, faGear, faGrip, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from 'firebase/auth';
 import styles from '../styles/SideMenuComponent.module.css';
 import Image from 'next/image';
@@ -19,8 +19,18 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
     }
   };
 
+  const handleGoBack = () => {
+    router.back(); // Función para ir a la página anterior
+  };
+
   return (
     <div className={styles.sidebar}>
+      {/* Botón de volver */}
+      <button className={styles.backButton} onClick={handleGoBack}>
+        <FontAwesomeIcon icon={faArrowLeft} />
+        <span>Volver</span>
+      </button>
+
       {/* Verificar si los datos del usuario están disponibles */}
       {user ? (
         <div className={styles.userCard}>
