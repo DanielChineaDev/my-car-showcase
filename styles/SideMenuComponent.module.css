@@ -29,6 +29,7 @@
 
 .menuItem {
   padding: 10px;
+  margin: 10px 0;
   color: rgb(201, 201, 201);
   text-decoration: none;
   display: flex;
