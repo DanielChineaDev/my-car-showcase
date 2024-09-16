@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { getAuth, signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faWarehouse, faFolderClosed, faCircleXmark, faGear, faGrip } from "@fortawesome/free-solid-svg-icons";
 import styles from '../styles/SideMenuComponent.module.css';
