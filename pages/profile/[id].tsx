@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Importa la autenticación de Firebase
 import { db } from '../../firebaseConfig';
 import Sidebar from '@/components/SideMenuComponent';
+import LoadingSpinner from '@/components/LoadingSpinnerComponent';
 import styles from '../../styles/ProfilePage.module.css';
 
 const ProfilePage = () => {
@@ -12,10 +14,30 @@ const ProfilePage = () => {
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [authUser, setAuthUser] = useState<any>(null); // Estado para el usuario autenticado
+
+  // Verifica si el usuario está autenticado
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user); // Guarda el usuario autenticado
+      } else {
+        router.push('/'); // Redirigir a la página de inicio de sesión si no está autenticado
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
 
   useEffect(() => {
     const fetchUserData = async () => {
-      if (id) {
+      if (authUser && id) {
+        // Si el usuario autenticado intenta acceder al perfil de otro usuario, redirigirlo a su propio perfil
+        if (id !== authUser.uid) {
+          router.push(`/profile/${authUser.uid}`);
+          return;
+        }
+
         try {
           const userDocRef = doc(db, 'users', id as string);
           const userDocSnap = await getDoc(userDocRef);
@@ -31,8 +53,8 @@ const ProfilePage = () => {
         }
       }
     };
-    fetchUserData();
-  }, [id]);
+    if (authUser) fetchUserData();
+  }, [id, authUser, router]);
 
   // Controla la sección activa en el menú
   const handleSectionChange = (section: string) => {
@@ -40,7 +62,7 @@ const ProfilePage = () => {
   };
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return <LoadingSpinner />;
   }
 
   if (error) {
