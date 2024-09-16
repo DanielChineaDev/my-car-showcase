@@ -41,6 +41,12 @@
   cursor: pointer;
 }
 
+.menuItem.active {
+  background-color: #3a3a3a;
+  border-radius: 50px;
+  color: white;
+}
+
 .icon {
   margin-right: 15px; /* Ajusta el espacio entre el ícono y el texto */
   font-size: 14px;
