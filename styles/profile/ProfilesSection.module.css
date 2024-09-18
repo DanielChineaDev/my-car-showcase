@@ -1,0 +1,45 @@
+.container {
+    padding: 20px;
+  }
+  
+  .filters {
+    margin-bottom: 20px;
+  }
+  
+  .filterItem {
+    margin-right: 15px;
+    display: inline-block;
+  }
+  
+  .usersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .userCard {
+    background-color: #444444b4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .avatarContainer {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .userInfo {
+    text-align: center;
+  }
+  
+  .userName,
+  .userRole,
+  .userPoints {
+    margin: 5px 0;
+  }
+  

@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true, // Asegúrate de que la estructura app/ esté habilitada
   },
   images: {
-    domains: ['www.sentieriselvaggi.it'], // Añade los dominios permitidos para imágenes externas
+    domains: ['www.sentieriselvaggi.it', 'e1.pxfuel.com'],  // Añade 'e1.pxfuel.com' aquí
   },
 };
 
