@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faWarehouse, faFolderClosed, faCircleXmark, faGear, faGrip, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from 'firebase/auth';

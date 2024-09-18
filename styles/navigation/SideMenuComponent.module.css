@@ -1,7 +1,7 @@
 .sidebar {
   width: 200px;
   height: 100vh;
-  background-color: #1E1E2C;
+  background-color: #13131b;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -10,6 +10,9 @@
   left: 0;
   z-index: 100;
   color: white;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.274); /* Sombra lateral derecha */
+border-radius: 0 25px 25px 0;
+
 }
 
 .logo {
@@ -55,8 +58,7 @@
 
 .text {
   flex-grow: 1;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
 }
 
 .badge {
@@ -75,13 +77,13 @@
 
 .sectionTitle {
   font-size: 12px;
-  color: #64648f;
+  color: #4c4c70;
   text-transform: uppercase;
   padding: 10px 0;
 }
 
 .logoutButton {
-  background-color: #ff4d4d;
+  background-color: #af4141;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -94,7 +96,7 @@
 }
 
 .logoutButton:hover {
-  background-color: #ff1a1a;
+  background-color: rgb(192, 58, 58);
 }
 
 /* Nuevos estilos para la tarjeta de usuario */
@@ -105,12 +107,13 @@
   padding: 0 10px;
   margin-bottom: 15px;
   border-radius: 50px;
+  overflow: hidden;          /* Oculta el contenido que se desborde del contenedor */
 }
 
 .avatarContainer {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  min-width: 50px;
+  min-height: 50px;
+  margin: 10px 15px 10px 5px;
   position: relative; /* Necesario para que funcione layout="fill" de Next.js Image */
   border-radius: 50%; /* Para que la imagen sea circular */
   overflow: hidden; /* Para que la imagen no se salga del borde circular */
@@ -126,6 +129,7 @@
   font-size: 14px;
   font-weight: bold;
   color: white;
+  white-space: nowrap;
 }
 
 .userRole {

@@ -1,66 +1,73 @@
-import { useRouter } from 'next/router';
+"use client";
+
+import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Importa la autenticación de Firebase
-import { db } from '../../firebaseConfig';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { db } from '../../../firebaseConfig';
 import Sidebar from '@/components/navigation/SideMenuComponent';
-import LoadingSpinner from '../../components/loading/LoadingSpinnerComponent';
-import styles from '../../styles/ProfilePage.module.css';
+import LoadingSpinner from '../../../components/loading/LoadingSpinnerComponent';
+import styles from '../../../styles/ProfilePage.module.css';
 
 const ProfilePage = () => {
   const router = useRouter();
-  const { id } = router.query; // El ID del usuario desde la URL
-  const [selectedSection, setSelectedSection] = useState('general'); // Controla la sección seleccionada
+  const params = useParams(); // Obtiene los parámetros dinámicos de la URL
+  const [selectedSection, setSelectedSection] = useState('general');
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [authUser, setAuthUser] = useState<any>(null); // Estado para el usuario autenticado
+  const [authUser, setAuthUser] = useState<any>(null);
+
+  const userIdFromUrl = params?.id; // Asegúrate de que params.id está definido correctamente
 
   // Verifica si el usuario está autenticado
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setAuthUser(user); // Guarda el usuario autenticado
+        setAuthUser(user);
       } else {
-        router.push('/'); // Redirigir a la página de inicio de sesión si no está autenticado
+        // Redirigir a la página de inicio si no está autenticado
+        router.push('/');
       }
     });
     return () => unsubscribe();
   }, [router]);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (authUser && id) {
-        // Si el usuario autenticado intenta acceder al perfil de otro usuario, redirigirlo a su propio perfil
-        if (id !== authUser.uid) {
-          router.push(`/profile/${authUser.uid}`);
-          return;
-        }
-
-        try {
-          const userDocRef = doc(db, 'users', id as string);
-          const userDocSnap = await getDoc(userDocRef);
-          if (userDocSnap.exists()) {
-            setUserData(userDocSnap.data());
-          } else {
-            setError('Usuario no encontrado');
-          }
-        } catch (err) {
-          setError('Error al cargar los datos del usuario');
-        } finally {
-          setLoading(false);
-        }
+  // Función para obtener los datos del usuario
+  const fetchUserData = async (id: string) => {
+    try {
+      const userDocRef = doc(db, 'users', id);
+      const userDocSnap = await getDoc(userDocRef);
+      if (userDocSnap.exists()) {
+        setUserData(userDocSnap.data());
+      } else {
+        setError('Usuario no encontrado');
       }
-    };
-    if (authUser) fetchUserData();
-  }, [id, authUser, router]);
+    } catch (err) {
+      setError('Error al cargar los datos del usuario');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Si hay un usuario autenticado y la URL tiene el id, obtener los datos
+  useEffect(() => {
+    if (authUser && userIdFromUrl) {
+      if (userIdFromUrl !== authUser.uid) {
+        router.push(`/profile/${authUser.uid}`);
+        return;
+      }
+      fetchUserData(userIdFromUrl);
+    }
+  }, [authUser, userIdFromUrl, router]);
 
   // Controla la sección activa en el menú
   const handleSectionChange = (section: string) => {
     setSelectedSection(section);
   };
 
+  // Mostrar spinner mientras carga
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -71,10 +78,13 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.container}>
-      <Sidebar user={userData} selectedSection={selectedSection} onSectionChange={handleSectionChange} />
+      <Sidebar
+        user={userData}
+        selectedSection={selectedSection}
+        onSectionChange={handleSectionChange}
+      />
 
       <div className={styles.profileContent}>
-        {/* Renderiza contenido basado en la sección seleccionada */}
         {selectedSection === 'general' && (
           <div>
             <h1>General</h1>
