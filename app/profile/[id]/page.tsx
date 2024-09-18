@@ -9,32 +9,37 @@ import Sidebar from '@/components/navigation/SideMenuComponent';
 import LoadingSpinner from '../../../components/loading/LoadingSpinnerComponent';
 import styles from '../../../styles/ProfilePage.module.css';
 
+// Importa las secciones
+import GeneralSection from '../../../components/profile/GeneralSection';
+import GarageSection from '../../../components/profile/GarageSection';
+import ProfilesSection from '../../../components/profile/ProfilesSection';
+import SettingsSection from '../../../components/profile/SettingsSection';
+import AdminPanelSection from '../../../components/profile/AdminPanelSection';
+import RequestsSection from '../../../components/profile/RequestsSection';
+
 const ProfilePage = () => {
   const router = useRouter();
-  const params = useParams(); // Obtiene los parámetros dinámicos de la URL
+  const params = useParams(); 
   const [selectedSection, setSelectedSection] = useState('general');
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [authUser, setAuthUser] = useState<any>(null);
 
-  const userIdFromUrl = params?.id; // Asegúrate de que params.id está definido correctamente
+  const userIdFromUrl = params?.id; 
 
-  // Verifica si el usuario está autenticado
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
       } else {
-        // Redirigir a la página de inicio si no está autenticado
         router.push('/');
       }
     });
     return () => unsubscribe();
   }, [router]);
 
-  // Función para obtener los datos del usuario
   const fetchUserData = async (id: string) => {
     try {
       const userDocRef = doc(db, 'users', id);
@@ -51,7 +56,6 @@ const ProfilePage = () => {
     }
   };
 
-  // Si hay un usuario autenticado y la URL tiene el id, obtener los datos
   useEffect(() => {
     if (authUser && userIdFromUrl) {
       if (userIdFromUrl !== authUser.uid) {
@@ -62,12 +66,10 @@ const ProfilePage = () => {
     }
   }, [authUser, userIdFromUrl, router]);
 
-  // Controla la sección activa en el menú
   const handleSectionChange = (section: string) => {
     setSelectedSection(section);
   };
 
-  // Mostrar spinner mientras carga
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -85,36 +87,12 @@ const ProfilePage = () => {
       />
 
       <div className={styles.profileContent}>
-        {selectedSection === 'general' && (
-          <div>
-            <h1>General</h1>
-            <p>Información general del usuario.</p>
-          </div>
-        )}
-        {selectedSection === 'garage' && (
-          <div>
-            <h1>Garaje</h1>
-            <p>Aquí se muestran los autos del usuario.</p>
-          </div>
-        )}
-        {selectedSection === 'settings' && (
-          <div>
-            <h1>Configuración</h1>
-            <p>Opciones de configuración del usuario.</p>
-          </div>
-        )}
-        {selectedSection === 'adminPanel' && (
-          <div>
-            <h1>Panel de administrador</h1>
-            <p>Acceso a las funciones de administrador.</p>
-          </div>
-        )}
-        {selectedSection === 'requests' && (
-          <div>
-            <h1>Solicitudes</h1>
-            <p>Aquí se muestran las solicitudes pendientes.</p>
-          </div>
-        )}
+        {selectedSection === 'general' && <GeneralSection />}
+        {selectedSection === 'garage' && <GarageSection />}
+        {selectedSection === 'profiles' && <ProfilesSection />}
+        {selectedSection === 'settings' && <SettingsSection />}
+        {selectedSection === 'adminPanel' && <AdminPanelSection />}
+        {selectedSection === 'requests' && <RequestsSection />}
       </div>
     </div>
   );

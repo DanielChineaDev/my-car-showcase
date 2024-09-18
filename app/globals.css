@@ -3,6 +3,8 @@
 :root {
   --primary-color: #7259EF; /* Color primario */
   --background-color: #1E1E2C;
+
+  --border-radius: 8px;
 }
 
 

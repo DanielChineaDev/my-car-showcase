@@ -29,8 +29,8 @@
 
 .cardContainer {
   display: flex;
-  justify-content: center; /* Centra las tarjetas */
-  gap: 40px; /* Espacio entre las tarjetas */
+  justify-content: center;
+  gap: 50px; /* Espacio entre las tarjetas */
   margin-top: 20px; /* Margen superior para separar las tarjetas del subtítulo */
   position: absolute;
   bottom: 10%; /* Ubicación en la parte inferior de la sección */
