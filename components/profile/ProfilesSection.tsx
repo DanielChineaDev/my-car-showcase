@@ -6,6 +6,7 @@ import { db } from '../../firebaseConfig';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../../styles/profile/ProfilesSection.module.css';
+import { faV } from '@fortawesome/free-solid-svg-icons';
 
 const ProfilesSection = () => {
   const [users, setUsers] = useState<any[]>([]);
@@ -130,3 +131,8 @@ const ProfilesSection = () => {
 };
 
 export default ProfilesSection;
+
+
+/* Que el modelo de coche favorito aparezca en la tarjeta del corredor, este modelo faV
+se dejara al usuario escogerlo en el PrefixPathnameNormalizer, a;adir tambien una
+barra de busqueda y que esta busque por coche, nombre, apellido */
