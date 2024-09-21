@@ -11,7 +11,7 @@ import styles from '../../../styles/ProfilePage.module.css';
 
 // Importa las secciones
 import GeneralSection from '../../../components/profile/GeneralSection';
-import GarageSection from '../../../components/profile/GarageSection';
+import UserGaragePage from '../../../components/profile/UserGarajePage';
 import ProfilesSection from '../../../components/profile/ProfilesSection';
 import SettingsSection from '../../../components/profile/SettingsSection';
 import AdminPanelSection from '../../../components/profile/AdminPanelSection';
@@ -88,7 +88,7 @@ const ProfilePage = () => {
 
       <div className={styles.profileContent}>
         {selectedSection === 'general' && <GeneralSection user={userData} />}
-        {selectedSection === 'garage' && <GarageSection />}
+        {selectedSection === 'garage' && <UserGaragePage />}
         {selectedSection === 'profiles' && <ProfilesSection />}
         {selectedSection === 'settings' && <SettingsSection />}
         {selectedSection === 'adminPanel' && <AdminPanelSection />}

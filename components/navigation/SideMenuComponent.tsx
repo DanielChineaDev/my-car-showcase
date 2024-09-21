@@ -22,8 +22,9 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
   };
 
   const handleGoBack = () => {
-    router.back(); // Función para ir a la página anterior
+      router.push('/');
   };
+  
 
   return (
     <div className={styles.sidebar}>
