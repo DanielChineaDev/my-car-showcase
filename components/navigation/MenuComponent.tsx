@@ -1,7 +1,7 @@
 "use client"; // Asegura que el archivo se ejecute en el cliente
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 import styles from '../../styles/navigation/MenuComponent.module.css';
 import LoginModal from '../auth/LoginModal';
 import SignUpModal from '../auth/SignUpModal';
@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [userData, setUserData] = useState<any>(null);
   const [notificationsCount, setNotificationsCount] = useState(0); // Estado para el número de notificaciones
-  const router = useRouter(); 
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
