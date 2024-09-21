@@ -64,7 +64,7 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
           onClick={() => onSectionChange('general')}
         >
           <FontAwesomeIcon icon={faHome} className={styles.icon} />
-          <span className={styles.text}>General</span>
+          <span className={styles.text}>Mi perfil</span>
         </li>
         <li
           className={`${styles.menuItem} ${selectedSection === 'garage' ? styles.active : ''}`}

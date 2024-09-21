@@ -5,7 +5,7 @@ import MenuComponent from '../components/navigation/MenuComponent';
 import HomeView from '../components/home/HomeComponent';
 import AboutUs from '../components/home/AboutUsComponent';
 import MoreInfo from '../components/home/MoreInfoComponent';
-import ProfileComponent from '../pages/profile/[id]';
+import ProfileComponent from './profile/[id]/page';
 
 import Head from 'next/head';
 

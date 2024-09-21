@@ -87,7 +87,7 @@ const ProfilePage = () => {
       />
 
       <div className={styles.profileContent}>
-        {selectedSection === 'general' && <GeneralSection />}
+        {selectedSection === 'general' && <GeneralSection user={userData} />}
         {selectedSection === 'garage' && <GarageSection />}
         {selectedSection === 'profiles' && <ProfilesSection />}
         {selectedSection === 'settings' && <SettingsSection />}
