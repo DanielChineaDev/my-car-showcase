@@ -1,16 +1,17 @@
-.section2 {
-    padding: 100px 50px;
-    text-align: center;
-  }
-  
-  .section2 p {
-    max-width: 800px;
-    margin: 20px auto;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .carSelector {
-    margin: 50px 0;
-  }
-  
+.section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+.section p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 18px;
+  color: #333;
+}
+
+.carSelector {
+  margin: 50px 0;
+}

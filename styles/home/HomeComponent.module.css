@@ -1,10 +1,24 @@
-.section1 {
-  position: relative;
+/* Section styles */
+.section {
+  scroll-snap-align: start;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: transparent;
 }
 
+/* Wrapper to contain video and overlay */
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background video */
 .backgroundVideo {
   position: absolute;
   top: 0;
@@ -12,8 +26,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
-  filter: blur(10px) brightness(50%);
+}
+
+/* Overlay with blur effect */
+.blurOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px) brightness(50%); /* Aplica el blur y ajuste de brillo */
+  background-color: rgba(0, 0, 0, 0.3); /* Controla el nivel de oscuridad del fondo */
 }
 
 .section1::before {
@@ -99,7 +120,7 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--primary-color);;
+  color: var(--primary-color);
   text-align: center;
   font-size: 36px;
   font-weight: bold;

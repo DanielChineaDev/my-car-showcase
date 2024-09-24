@@ -2,16 +2,24 @@
 
 .navbar {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  justify-content: center; /* Alinea el contenido horizontalmente */
+  align-items: center; /* Alinea el contenido verticalmente */
   background-color: transparent;
   color: white;
   position: fixed;
   top: 0;
+  left: 50%; /* Mueve el contenedor a la mitad horizontal */
+  transform: translateX(-50%); /* Centra horizontalmente al contenedor */
   width: 100%;
+  max-width: 1200px;
   z-index: 10;
   transition: background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.075);
+  padding: 10px 0;
+  border-radius: 35px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 .navbarContent {
@@ -20,7 +28,7 @@
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
 .navbarScrolled {
