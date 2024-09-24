@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true, // Asegúrate de que la estructura app/ esté habilitada
   },
   images: {
-    domains: ['www.sentieriselvaggi.it', 'e1.pxfuel.com', 'image-0.uhdpaper.com'],
+    domains: ['www.sentieriselvaggi.it', 'e1.pxfuel.com', 'steamuserimages-a.akamaihd.net'],
   },
 };
 

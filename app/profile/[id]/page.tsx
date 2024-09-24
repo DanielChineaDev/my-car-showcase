@@ -8,8 +8,6 @@ import { db } from '../../../firebaseConfig';
 import Sidebar from '@/components/navigation/SideMenuComponent';
 import LoadingSpinner from '../../../components/loading/LoadingSpinnerComponent';
 import styles from '../../../styles/ProfilePage.module.css';
-
-// Importa las secciones
 import GeneralSection from '../../../components/profile/GeneralSection';
 import UserGaragePage from '../../../components/profile/UserGarajePage';
 import ProfilesSection from '../../../components/profile/ProfilesSection';
@@ -80,6 +78,8 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.topGradientBar}></div>
+      
       <Sidebar
         user={userData}
         selectedSection={selectedSection}
