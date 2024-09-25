@@ -10,7 +10,7 @@
   top: 0;
   left: 50%; /* Mueve el contenedor a la mitad horizontal */
   transform: translateX(-50%); /* Centra horizontalmente al contenedor */
-  width: 100%;
+  width: 97%;
   max-width: 1200px;
   z-index: 10;
   transition: background-color 0.3s ease;
@@ -20,6 +20,7 @@
   backdrop-filter: blur(15px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+
 }
 
 .navbarContent {
