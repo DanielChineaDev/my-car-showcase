@@ -11,6 +11,16 @@
   background-color: transparent;
 }
 
+.topGradientBar {
+  height: 2px; /* Ajusta la altura de la barra según lo que desees */
+  width: 100%;
+  background: linear-gradient(to right, rgb(174, 33, 255), rgb(160, 119, 255)); /* Degradado de violeta a rosado */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegúrate de que esté siempre encima del contenido */
+}
+
 /* Wrapper to contain video and overlay */
 .videoWrapper {
   position: relative;

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faWarehouse, faFolderClosed, faCar, faGear, faGrip, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faWarehouse, faFolderClosed, faCar, faGear, faGrip, faArrowLeft, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from 'firebase/auth';
 import styles from '../../styles/navigation/SideMenuComponent.module.css';
 import Image from 'next/image';
@@ -80,6 +80,13 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
         >
           <FontAwesomeIcon icon={faCar} className={styles.icon} />
           <span className={styles.text}>Corredores</span>
+        </li>
+        <li
+          className={`${styles.menuItem} ${selectedSection === 'rules' ? styles.active : ''}`}
+          onClick={() => onSectionChange('rules')}
+        >
+          <FontAwesomeIcon icon={faCircleInfo} className={styles.icon} />
+          <span className={styles.text}>Estatutos y normas</span>
         </li>
         <li
           className={`${styles.menuItem} ${selectedSection === 'settings' ? styles.active : ''}`}

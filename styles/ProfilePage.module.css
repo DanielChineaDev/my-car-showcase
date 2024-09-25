@@ -5,13 +5,13 @@
   }
   
   .topGradientBar {
-    height: 4px; /* Ajusta la altura de la barra según lo que desees */
+    height: 2px;
     width: 100%;
-    background: linear-gradient(to right, rgb(174, 33, 255), rgb(160, 119, 255)); /* Degradado de violeta a rosado */
+    background: var(--background-gradient);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Asegúrate de que esté siempre encima del contenido */
+    z-index: 1000;
   }
   
   /* Alineamos el contenido con un margen izquierdo para el menú lateral */

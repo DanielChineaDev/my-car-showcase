@@ -17,6 +17,7 @@ const Home = () => {
 
   return (
     <section className={styles.section} id="home">
+      <div className={styles.topGradientBar}></div>
       <div className={styles.videoWrapper}>
         <video autoPlay muted loop className={styles.backgroundVideo}>
           <source src="/video_home.mp4" type="video/mp4" />
