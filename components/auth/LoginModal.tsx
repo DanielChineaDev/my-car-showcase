@@ -5,8 +5,9 @@ import styles from '../../styles/auth/LoginModal.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import { auth } from '../../firebaseConfig';  // Firebase auth
+import { auth } from '../../firebaseConfig';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { setPersistence, browserLocalPersistence } from 'firebase/auth'; // Persistencia
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -21,7 +22,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [firebaseError, setFirebaseError] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar si se está enviando el formulario
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
@@ -29,14 +30,18 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
   // Función para iniciar sesión con correo y contraseña
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true); // Comienza el envío
+    setIsSubmitting(true);
+
     try {
+      // Establecemos la persistencia local para guardar la sesión
+      await setPersistence(auth, browserLocalPersistence);
+
       await signInWithEmailAndPassword(auth, email, password);
       onClose();  // Cierra el modal al iniciar sesión correctamente
     } catch (error: any) {
       setFirebaseError('Error al iniciar sesión. Verifica tus credenciales.');
     } finally {
-      setIsSubmitting(false); // Finaliza el envío
+      setIsSubmitting(false);
     }
   };
 
@@ -44,6 +49,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onSwitchToSig
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
+      await setPersistence(auth, browserLocalPersistence);  // Persistencia local para Google también
       await signInWithPopup(auth, provider);
       onClose();  // Cierra el modal al iniciar sesión correctamente
     } catch (error: any) {

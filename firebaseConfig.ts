@@ -1,15 +1,15 @@
-// lib/firebaseConfig.ts
+// /lib/firebaseConfig.ts
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAKRnJuW0Wu-xWuSzZxb7CFRFHbJ9odnP8",
-  authDomain: "revenge-motorsport.firebaseapp.com",
-  projectId: "revenge-motorsport",
-  storageBucket: "revenge-motorsport.appspot.com",
-  messagingSenderId: "214059486325",
-  appId: "1:214059486325:web:24d2e09ace360d3f2e7c3c",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Inicializa Firebase

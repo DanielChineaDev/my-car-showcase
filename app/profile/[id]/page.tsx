@@ -1,12 +1,11 @@
-"use client";
+"use client"; // Indicar que este es un Client Component
 
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../../firebaseConfig';
 import Sidebar from '@/components/navigation/SideMenuComponent';
-import LoadingSpinner from '../../../components/loading/LoadingSpinnerComponent';
+import LoadingSpinner from '../../../components/LoadingSpinnerComponent';
 import styles from '../../../styles/ProfilePage.module.css';
 import GeneralSection from '../../../components/profile/GeneralSection';
 import UserGaragePage from '../../../components/profile/UserGarajePage';
@@ -14,6 +13,7 @@ import ProfilesSection from '../../../components/profile/ProfilesSection';
 import SettingsSection from '../../../components/profile/SettingsSection';
 import AdminPanelSection from '../../../components/profile/AdminPanelSection';
 import RequestsSection from '../../../components/profile/RequestsSection';
+import ProtectedRoute from '../../../components/ProtectedRoute';
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -22,21 +22,8 @@ const ProfilePage = () => {
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [authUser, setAuthUser] = useState<any>(null);
 
   const userIdFromUrl = params?.id; 
-
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        router.push('/');
-      }
-    });
-    return () => unsubscribe();
-  }, [router]);
 
   const fetchUserData = async (id: string) => {
     try {
@@ -55,14 +42,10 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    if (authUser && userIdFromUrl) {
-      if (userIdFromUrl !== authUser.uid) {
-        router.push(`/profile/${authUser.uid}`);
-        return;
-      }
+    if (userIdFromUrl) {
       fetchUserData(userIdFromUrl);
     }
-  }, [authUser, userIdFromUrl, router]);
+  }, [userIdFromUrl, router]);
 
   const handleSectionChange = (section: string) => {
     setSelectedSection(section);
@@ -77,24 +60,26 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.topGradientBar}></div>
-      
-      <Sidebar
-        user={userData}
-        selectedSection={selectedSection}
-        onSectionChange={handleSectionChange}
-      />
+    <ProtectedRoute>
+      <div className={styles.container}>
+        <div className={styles.topGradientBar}></div>
 
-      <div className={styles.profileContent}>
-        {selectedSection === 'general' && <GeneralSection user={userData} />}
-        {selectedSection === 'garage' && <UserGaragePage />}
-        {selectedSection === 'profiles' && <ProfilesSection />}
-        {selectedSection === 'settings' && <SettingsSection />}
-        {selectedSection === 'adminPanel' && <AdminPanelSection />}
-        {selectedSection === 'requests' && <RequestsSection />}
+        <Sidebar
+          user={userData}
+          selectedSection={selectedSection}
+          onSectionChange={handleSectionChange}
+        />
+
+        <div className={styles.profileContent}>
+          {selectedSection === 'general' && <GeneralSection user={userData} />}
+          {selectedSection === 'garage' && <UserGaragePage />}
+          {selectedSection === 'profiles' && <ProfilesSection />}
+          {selectedSection === 'settings' && <SettingsSection />}
+          {selectedSection === 'adminPanel' && <AdminPanelSection />}
+          {selectedSection === 'requests' && <RequestsSection />}
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 };
 

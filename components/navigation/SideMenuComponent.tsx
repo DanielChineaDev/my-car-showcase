@@ -15,16 +15,15 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
     const auth = getAuth();
     try {
       await signOut(auth);
-      router.push('/');
+      router.push('/'); // Redirige al home después de cerrar sesión
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
   };
 
   const handleGoBack = () => {
-      router.push('/');
+    router.push('/');
   };
-  
 
   return (
     <div className={styles.sidebar}>
@@ -39,15 +38,15 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
         <div className={styles.userCard}>
           <div className={styles.avatarContainer}>
             <Image
-              src={user.avatarUrl}
-              alt={`${user.firstName} ${user.lastName}`}
+              src={user.avatarUrl || "/default-avatar.png"} // Usamos avatarUrl del usuario o fallback a un avatar por defecto
+              alt={`${user.firstName} ${user.lastName}`} // Mostramos el nombre y apellido personalizados
               layout="fill"
               objectFit="cover"
               className={styles.userAvatar}
             />
           </div>
           <div>
-            <p className={styles.userName}>{user.firstName} {user.lastName}</p>
+            <p className={styles.userName}>{user.firstName} {user.lastName}</p> {/* Usamos firstName y lastName personalizados */}
             <p className={styles.userRole}>
               {user.role === 'admin' ? 'Administrador' : 'Miembro'}
             </p>
