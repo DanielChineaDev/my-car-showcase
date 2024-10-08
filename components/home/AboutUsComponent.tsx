@@ -2,9 +2,9 @@ import React from 'react';
 import CarComponent from '../../components/cars/CarComponent';
 import styles from '../../styles/home/AboutUs.module.css';
 
-const Section2: React.FC = () => {
+const AboutUs: React.FC = () => {
   return (
-    <section className={styles.section2}>
+    <section className={styles.section} id='about'>
       <h2>Sobre Nosotros</h2>
       <p>Texto introductorio sobre el club y su historia.</p>
 
@@ -17,7 +17,7 @@ const Section2: React.FC = () => {
 
       <p>Texto adicional sobre el club y sus miembros.</p>
     </section>
-  );
+  )
 };
 
-export default Section2;
+export default AboutUs;

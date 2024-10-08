@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Contenedor principal */
 .container {
   font-family: 'Roboto', Arial, sans-serif;
@@ -6,6 +7,45 @@
   height: 100vh;
   padding: 20px;
 }
+=======
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  .topGradientBar {
+    height: 2px;
+    width: 100%;
+    background: var(--background-gradient);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Alineamos el contenido con un margen izquierdo para el menú lateral */
+  .profileContent {
+    flex-grow: 1;
+    margin-left: 200px; /* El ancho del menú lateral */
+    padding: 35px;
+  }
+  
+  .profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+>>>>>>> 12e349407b68ff7ae1ab7db0cfb52d4acb62c55e
 
 /* Card para la barra de búsqueda y los filtros */
 .searchAndFiltersCard {

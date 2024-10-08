@@ -5,7 +5,7 @@ import styles from '../../styles/home/MoreInfo.module.css';
 import LoginModal from '../auth/LoginModal';
 import SignUpModal from '../auth/SignUpModal';
 
-const Section3: React.FC = () => {
+const MoreInfo: React.FC = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
@@ -24,7 +24,7 @@ const Section3: React.FC = () => {
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
   return (
-    <section className={styles.section3}>
+    <section className={styles.section} id='more-info'>
       <h2>Empresas Colaboradoras</h2>
 
       {/* Carrusel de tarjetas */}
@@ -49,7 +49,7 @@ const Section3: React.FC = () => {
         onSwitchToLogin={openLoginModal}
       />
     </section>
-  );
+  )
 };
 
-export default Section3;
+export default MoreInfo;

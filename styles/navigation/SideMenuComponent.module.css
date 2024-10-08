@@ -1,26 +1,18 @@
 .sidebar {
   width: 200px;
-  height: 100vh;
-  background-color: #13131b;
+  height: 97%;
+  background-color: var(--background-color-blur);
   display: flex;
   flex-direction: column;
   padding: 10px;
+  margin: 15px;
   position: fixed;
-  top: 0;
+  top: 3px;
   left: 0;
   z-index: 100;
   color: white;
-  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.274); /* Sombra lateral derecha */
-  border-radius: 0 5px 5px 0;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.logo img {
-  width: 100px;
+  box-shadow: var(--shadow-card);
+  border-radius: var(--border-radius);
 }
 
 .menu {
@@ -32,7 +24,7 @@
 .menuItem {
   padding: 10px;
   margin: 10px 0;
-  color: rgb(201, 201, 201);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -40,13 +32,15 @@
 
 .menuItem:hover {
   background-color: #81818125;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 
 .menuItem.active {
-  background-color: #81818125;
-  border-radius: 8px;
+  background: var(--background-gradient);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
   color: white;
 }
 
@@ -60,13 +54,6 @@
   font-size: 12px;
 }
 
-.badge {
-  color: #838383;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 12px;
-}
-
 .hrDivider {
   border: none;
   height: 1px;
@@ -76,7 +63,7 @@
 
 .sectionTitle {
   font-size: 12px;
-  color: #4c4c70;
+  color: #8d8dd1;
   text-transform: uppercase;
   padding: 10px 0;
 }
@@ -86,11 +73,10 @@
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   text-align: center;
   cursor: pointer;
   margin-top: auto;
-  margin-bottom: 20px; /* Añade espacio inferior */
   display: block;
 }
 
@@ -103,10 +89,10 @@
   display: flex;
   align-items: center;
   background-color: #81818125;
-  padding: 0 10px;
+  padding: 0 5px;
   margin-bottom: 15px;
-  border-radius: 8px;
-  overflow: hidden;          /* Oculta el contenido que se desborde del contenedor */
+  border-radius: 50px;
+  overflow: hidden;
 }
 
 .avatarContainer {
@@ -119,7 +105,7 @@
 }
 
 .userAvatar {
-  object-fit: cover; /* Esto asegura que la imagen mantenga la proporción */
+  object-fit: cover;
   width: 100%;
   height: 100%;
 }
@@ -150,9 +136,9 @@
 }
 
 .backButton:hover {
-  color: #ccc; /* Cambia de color al pasar el ratón */
+  color: #ccc;
 }
 
 .backButton svg {
-  margin-right: 8px; /* Espacio entre el ícono de la flecha y el texto */
+  margin-right: 8px;
 }

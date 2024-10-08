@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faWarehouse, faFolderClosed, faCar, faGear, faGrip, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faWarehouse, faFolderClosed, faCar, faGear, faGrip, faArrowLeft, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from 'firebase/auth';
 import styles from '../../styles/navigation/SideMenuComponent.module.css';
 import Image from 'next/image';
@@ -15,14 +15,14 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
     const auth = getAuth();
     try {
       await signOut(auth);
-      router.push('/');
+      router.push('/'); // Redirige al home después de cerrar sesión
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
   };
 
   const handleGoBack = () => {
-    router.back(); // Función para ir a la página anterior
+    router.push('/');
   };
 
   return (
@@ -38,15 +38,15 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
         <div className={styles.userCard}>
           <div className={styles.avatarContainer}>
             <Image
-              src={user.avatarUrl}
-              alt={`${user.firstName} ${user.lastName}`}
+              src={user.avatarUrl || "/default-avatar.png"} // Usamos avatarUrl del usuario o fallback a un avatar por defecto
+              alt={`${user.firstName} ${user.lastName}`} // Mostramos el nombre y apellido personalizados
               layout="fill"
               objectFit="cover"
               className={styles.userAvatar}
             />
           </div>
           <div>
-            <p className={styles.userName}>{user.firstName} {user.lastName}</p>
+            <p className={styles.userName}>{user.firstName} {user.lastName}</p> {/* Usamos firstName y lastName personalizados */}
             <p className={styles.userRole}>
               {user.role === 'admin' ? 'Administrador' : 'Miembro'}
             </p>
@@ -64,7 +64,7 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
           onClick={() => onSectionChange('general')}
         >
           <FontAwesomeIcon icon={faHome} className={styles.icon} />
-          <span className={styles.text}>General</span>
+          <span className={styles.text}>Mi perfil</span>
         </li>
         <li
           className={`${styles.menuItem} ${selectedSection === 'garage' ? styles.active : ''}`}
@@ -79,6 +79,13 @@ const Sidebar = ({ user, selectedSection, onSectionChange }) => {
         >
           <FontAwesomeIcon icon={faCar} className={styles.icon} />
           <span className={styles.text}>Corredores</span>
+        </li>
+        <li
+          className={`${styles.menuItem} ${selectedSection === 'rules' ? styles.active : ''}`}
+          onClick={() => onSectionChange('rules')}
+        >
+          <FontAwesomeIcon icon={faCircleInfo} className={styles.icon} />
+          <span className={styles.text}>Estatutos y normas</span>
         </li>
         <li
           className={`${styles.menuItem} ${selectedSection === 'settings' ? styles.active : ''}`}

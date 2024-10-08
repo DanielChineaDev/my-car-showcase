@@ -1,10 +1,34 @@
-.section1 {
-  position: relative;
+/* Section styles */
+.section {
+  scroll-snap-align: start;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: transparent;
 }
 
+.topGradientBar {
+  height: 2px; /* Ajusta la altura de la barra según lo que desees */
+  width: 100%;
+  background: linear-gradient(to right, rgb(174, 33, 255), rgb(160, 119, 255)); /* Degradado de violeta a rosado */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegúrate de que esté siempre encima del contenido */
+}
+
+/* Wrapper to contain video and overlay */
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background video */
 .backgroundVideo {
   position: absolute;
   top: 0;
@@ -12,8 +36,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
-  filter: blur(10px) brightness(50%);
+}
+
+/* Overlay with blur effect */
+.blurOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px) brightness(50%); /* Aplica el blur y ajuste de brillo */
+  background-color: rgba(0, 0, 0, 0.3); /* Controla el nivel de oscuridad del fondo */
 }
 
 .section1::before {
@@ -99,7 +130,7 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--primary-color);;
+  color: var(--primary-color);
   text-align: center;
   font-size: 36px;
   font-weight: bold;
