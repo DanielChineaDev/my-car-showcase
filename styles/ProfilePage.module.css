@@ -1,91 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
+/* Contenedor principal */
 .container {
-    font-family: 'Roboto', Arial, sans-serif;
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-  }
-  
-  /* Alineamos el contenido con un margen izquierdo para el menú lateral */
-  .profileContent {
-    flex-grow: 1;
-    margin-left: 200px; /* El ancho del menú lateral */
-    padding: 35px;
-  }
-  
-  .profileHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .profileForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 400px;
-    margin-top: 20px;
-  }
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 20px;
+}
 
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-  
-  .logoutButton {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .profileDetails h2 {
-    margin-top: 20px;
-    font-size: 20px;
-  }
-  
-  .profileDetails p {
-    margin: 10px 0;
-  }
-  
-  .editButton,
-  .saveButton,
-  .cancelButton {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .carItem {
-    margin-bottom: 15px;
-  }
-  
-  /* Cambia el selector global "input" por una clase específica */
-.inputField {
+/* Card para la barra de búsqueda y los filtros */
+.searchAndFiltersCard {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Contenedor de búsqueda y botón */
+.searchAndFilters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Estilo de la barra de búsqueda */
+.searchInput {
+  flex-grow: 1;
   padding: 10px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 100%;
+  margin-right: 10px;
 }
-  
-.badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 5px;
-    font-size: 12px;
-  }
+
+/* Estilo del botón de filtros */
+.toggleFiltersButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggleFiltersButton:hover {
+  background-color: #2980b9;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Elemento individual del filtro */
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+/* Grilla de usuarios */
+.usersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Estilo de la tarjeta de usuario */
+.userCard {
+  background-color: #444444b4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Contenedor del avatar */
+.avatarContainer {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.userInfo {
+  text-align: center;
+}
+
+.userName, .userRole, .userPoints {
+  margin: 5px 0;
+}
